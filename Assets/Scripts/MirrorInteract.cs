@@ -4,7 +4,7 @@ public class MirrorInteract : MonoBehaviour
 {
     public GameObject mirrorCameraRig;
     public Camera mainCamera;
-    public MonoBehaviour playerMovementScript; // whatever your player controller script is called
+    public PlayerMovement playerMovementScript; // whatever your player controller script is called
     bool playerNearby;
     bool inMirrorView;
 
