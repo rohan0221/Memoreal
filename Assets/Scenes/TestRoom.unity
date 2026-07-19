@@ -575,7 +575,7 @@ Transform:
   m_GameObject: {fileID: 649123948}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.064, y: 0, z: 0}
+  m_LocalPosition: {x: 1.27, y: 1.4, z: 2.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -668,6 +668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912604142}
+  - component: {fileID: 912604143}
   m_Layer: 0
   m_Name: FaceBust
   m_TagString: Untagged
@@ -694,6 +695,22 @@ Transform:
   - {fileID: 1152070664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912604143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912604141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60db6c44b1dff744abb73bb6754cc6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MirrorFeatures
+  eyes: {fileID: 649123948}
+  mouth: {fileID: 957691632}
+  nose: {fileID: 1301815348}
+  ears: {fileID: 1152070663}
 --- !u!1 &925124518
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +866,7 @@ Transform:
   m_GameObject: {fileID: 957691632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.255, z: 0}
+  m_LocalPosition: {x: 0, y: 1.255, z: 4.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -963,7 +980,7 @@ Transform:
   m_GameObject: {fileID: 1152070663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0.37, z: 2.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,7 +1092,7 @@ Transform:
   m_GameObject: {fileID: 1301815348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.432, z: 1.341}
+  m_LocalPosition: {x: -1.47, y: 1.03, z: 4.251}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1222,7 +1239,7 @@ Transform:
   m_GameObject: {fileID: 1660829437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.276, y: 0.94, z: -0.37}
+  m_LocalPosition: {x: -0.586, y: 0.94, z: -2.711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1641,13 +1658,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910799286}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14300999, y: 0.37265998, z: -1.6899999}
+  m_LocalRotation: {x: 0.105926484, y: -0, z: -0, w: 0.994374}
+  m_LocalPosition: {x: -0.14300996, y: 1.6699998, z: 0.27999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1660829440}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.161, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
