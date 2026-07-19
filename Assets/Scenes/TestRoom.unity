@@ -1190,8 +1190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorInteract
   mirrorCameraRig: {fileID: 1910799286}
-  mainCamera: {fileID: 0}
-  playerMovementScript: {fileID: 0}
+  mainCamera: {fileID: 1792854241}
+  playerMovementScript: {fileID: 1736569826}
 --- !u!65 &1660829439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1537,7 +1537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1910799287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,7 +1589,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910799286}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
