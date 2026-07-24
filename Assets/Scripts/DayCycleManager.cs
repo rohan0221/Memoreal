@@ -12,7 +12,7 @@ public class DayCycleManager : MonoBehaviour
     public Image vignetteOverlay;
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
-
+    public Transform bedSpawnPoint;
     float distanceTravelled;
     int currentDay = 1;
     bool inBlackout;
@@ -78,11 +78,12 @@ public class DayCycleManager : MonoBehaviour
         }
     }
 
-    void EndDay()
+    public void EndDay() // changed from private to public
     {
+        playerMovementScript.enabled = false;
         currentDay++;
         distanceTravelled = 0f;
-        SetVignetteAlpha(0f);
+        SetVignetteAlpha(0f); // or vignette.SetProgress(0f) once you swap in the new system
         dayText.text = "DAY " + currentDay;
         dayText.gameObject.SetActive(true);
         Invoke(nameof(HideDayTextAndResume), 2f);
@@ -91,6 +92,16 @@ public class DayCycleManager : MonoBehaviour
     void HideDayTextAndResume()
     {
         dayText.gameObject.SetActive(false);
+
+        if (bedSpawnPoint != null)
+        {
+            var cc = playerMovementScript.GetComponent<CharacterController>();
+            if (cc != null) cc.enabled = false; // must disable CC before moving its transform directly
+            playerMovementScript.transform.position = bedSpawnPoint.position;
+            playerMovementScript.transform.rotation = bedSpawnPoint.rotation;
+            if (cc != null) cc.enabled = true;
+        }
+
         playerMovementScript.enabled = true;
     }
 }
