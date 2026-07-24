@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections; 
 
 public class DayCycleManager : MonoBehaviour
 {
@@ -60,9 +61,28 @@ public class DayCycleManager : MonoBehaviour
 
     public void OnPartialSuccess()
     {
-        SetVignetteAlpha(0.6f); // brief relief flash between the two hands
+        StartCoroutine(FlashRelief());
     }
 
+    IEnumerator FlashRelief()
+    {
+        yield return StartCoroutine(FadeVignette(1f, 0.6f, 0.4f));
+        yield return new WaitForSeconds(0.3f); // brief hold at the dimmer point
+        yield return StartCoroutine(FadeVignette(0.6f, 1f, 0.4f));
+    }
+
+    IEnumerator FadeVignette(float from, float to, float duration)
+    {
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            SetVignetteAlpha(Mathf.Lerp(from, to, t / duration));
+            yield return null;
+        }
+        SetVignetteAlpha(to);
+    }
+    
     void OnSkillCheckResult(bool passed)
     {
         inBlackout = false;

@@ -111,8 +111,8 @@ public class SkillCheckController : MonoBehaviour
         {
             t += Time.deltaTime;
             float lerp = t / duration;
-            handOuter.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(startOuter, 0f, lerp));
-            handInner.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(startInner, 180f, lerp));
+            handOuter.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(startOuter, 90f, lerp));
+            handInner.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(startInner, 270f, lerp));
             yield return null;
         }
 
