@@ -14,11 +14,19 @@ public class BedInteract : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) playerNearby = true;
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+            InteractPromptUI.Instance.Show();
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) playerNearby = false;
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = false;
+            InteractPromptUI.Instance.Hide();
+        }
     }
 }
