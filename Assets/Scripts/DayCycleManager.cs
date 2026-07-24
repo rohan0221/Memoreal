@@ -6,11 +6,10 @@ public class DayCycleManager : MonoBehaviour
 {
     public static DayCycleManager Instance;
 
-    public float vignetteStartDistance = 20f; // start darkening after this much movement
-    public float blackoutDistance = 30f;      // full black + skill check triggers here
+    public float vignetteStartDistance = 20f;
+    public float blackoutDistance = 30f;
 
-    public Image vignetteOverlay;   // full-screen black Image, CanvasGroup or Image alpha
-    public GameObject skillCheckUI;
+    public Image vignetteOverlay;
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
 
@@ -23,9 +22,19 @@ public class DayCycleManager : MonoBehaviour
         Instance = this;
     }
 
+    void Update()
+    {
+        // TEMPORARY debug stand-in for the skill check — remove once real skill check exists
+        if (inBlackout)
+        {
+            if (Input.GetKeyDown(KeyCode.P)) OnSkillCheckResult(true);
+            if (Input.GetKeyDown(KeyCode.F)) OnSkillCheckResult(false);
+        }
+    }
+
     public void AddDistance(float amount)
     {
-        if (inBlackout) return; // don't keep accumulating while skill check is active
+        if (inBlackout) return;
 
         distanceTravelled += amount;
 
@@ -50,13 +59,11 @@ public class DayCycleManager : MonoBehaviour
         inBlackout = true;
         SetVignetteAlpha(1f);
         playerMovementScript.enabled = false;
-        skillCheckUI.SetActive(true);
-        SkillCheckController.Instance.StartCheck(OnSkillCheckResult);
+        Debug.Log("Blackout! Press P to pass, F to fail (debug stand-in for skill check)");
     }
 
     void OnSkillCheckResult(bool passed)
     {
-        skillCheckUI.SetActive(false);
         inBlackout = false;
 
         if (passed)
