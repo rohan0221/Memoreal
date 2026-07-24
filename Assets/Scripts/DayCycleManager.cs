@@ -13,23 +13,15 @@ public class DayCycleManager : MonoBehaviour
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
     public Transform bedSpawnPoint;
+
     float distanceTravelled;
     int currentDay = 1;
+    int attemptsToday;
     bool inBlackout;
 
     void Awake()
     {
         Instance = this;
-    }
-
-    void Update()
-    {
-        // TEMPORARY debug stand-in for the skill check — remove once real skill check exists
-        if (inBlackout)
-        {
-            if (Input.GetKeyDown(KeyCode.P)) OnSkillCheckResult(true);
-            if (Input.GetKeyDown(KeyCode.F)) OnSkillCheckResult(false);
-        }
     }
 
     public void AddDistance(float amount)
@@ -59,7 +51,16 @@ public class DayCycleManager : MonoBehaviour
         inBlackout = true;
         SetVignetteAlpha(1f);
         playerMovementScript.enabled = false;
-        Debug.Log("Blackout! Press P to pass, F to fail (debug stand-in for skill check)");
+
+        float multiplier = 1f + (currentDay - 1) * 0.15f + attemptsToday * 0.1f;
+        attemptsToday++;
+
+        SkillCheckController.Instance.StartCheck(OnSkillCheckResult, multiplier);
+    }
+
+    public void OnPartialSuccess()
+    {
+        SetVignetteAlpha(0.6f); // brief relief flash between the two hands
     }
 
     void OnSkillCheckResult(bool passed)
@@ -78,12 +79,13 @@ public class DayCycleManager : MonoBehaviour
         }
     }
 
-    public void EndDay() // changed from private to public
+    public void EndDay()
     {
         playerMovementScript.enabled = false;
         currentDay++;
+        attemptsToday = 0;
         distanceTravelled = 0f;
-        SetVignetteAlpha(0f); // or vignette.SetProgress(0f) once you swap in the new system
+        SetVignetteAlpha(0f);
         dayText.text = "DAY " + currentDay;
         dayText.gameObject.SetActive(true);
         Invoke(nameof(HideDayTextAndResume), 2f);
@@ -96,7 +98,7 @@ public class DayCycleManager : MonoBehaviour
         if (bedSpawnPoint != null)
         {
             var cc = playerMovementScript.GetComponent<CharacterController>();
-            if (cc != null) cc.enabled = false; // must disable CC before moving its transform directly
+            if (cc != null) cc.enabled = false;
             playerMovementScript.transform.position = bedSpawnPoint.position;
             playerMovementScript.transform.rotation = bedSpawnPoint.rotation;
             if (cc != null) cc.enabled = true;
