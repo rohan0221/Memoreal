@@ -21,4 +21,16 @@ public class MemoryManager : MonoBehaviour
         flag = true;
         OnStateChanged?.Invoke();
     }
+    
+    public void UnlockByFlag(Recolourable.MemoryFlag flag)
+    {
+        switch (flag)
+        {
+            case Recolourable.MemoryFlag.Touch: Unlock(ref touchUnlocked); break;
+            case Recolourable.MemoryFlag.Hearing: Unlock(ref hearingUnlocked); break;
+            case Recolourable.MemoryFlag.Smell: Unlock(ref smellUnlocked); break;
+            case Recolourable.MemoryFlag.Taste: Unlock(ref tasteUnlocked); break;
+            case Recolourable.MemoryFlag.GuiltTwist: Unlock(ref guiltRevealed); break;
+        }
+    }
 }
