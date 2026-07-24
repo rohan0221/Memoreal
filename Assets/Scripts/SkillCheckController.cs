@@ -6,18 +6,19 @@ public class SkillCheckController : MonoBehaviour
 {
     public static SkillCheckController Instance;
 
-    public GameObject skillCheckUI;       // parent object containing everything below
+    public GameObject skillCheckUI;
     public RectTransform handOuter;
     public RectTransform handInner;
-    public RectTransform indicatorMarker; // reused for both phases, repositioned by rotation
+    public RectTransform indicatorPivot;   // rotates around centre
+    public RectTransform indicatorMarker;  // the visible dot, child of indicatorPivot
     public GameObject eyeCloseOverlay;
 
-    public float baseSpeed = 90f;  // degrees per second
-    public float tolerance = 6f;   // degrees of forgiveness
+    public float baseSpeed = 90f;
+    public float tolerance = 6f;
 
     Action<bool> onComplete;
     bool active;
-    int phase; // 0 = outer hand, 1 = inner hand
+    int phase;
     float currentAngle;
     float targetAngleA, targetAngleB;
     float speed;
@@ -44,12 +45,14 @@ public class SkillCheckController : MonoBehaviour
         handOuter.gameObject.SetActive(true);
         handInner.gameObject.SetActive(false);
         eyeCloseOverlay.SetActive(false);
-        PositionIndicator(targetAngleA);
+
+        PositionIndicator(targetAngleA, handOuter.rect.height / 2f);
     }
 
-    void PositionIndicator(float angle)
+    void PositionIndicator(float angle, float radius)
     {
-        indicatorMarker.localEulerAngles = new Vector3(0, 0, -angle);
+        indicatorPivot.localEulerAngles = new Vector3(0, 0, -angle);
+        indicatorMarker.anchoredPosition = new Vector2(0, radius);
     }
 
     void Update()
@@ -80,7 +83,7 @@ public class SkillCheckController : MonoBehaviour
             phase = 1;
             currentAngle = 0f;
             handInner.gameObject.SetActive(true);
-            PositionIndicator(targetAngleB);
+            PositionIndicator(targetAngleB, handInner.rect.height / 2f);
             Invoke(nameof(ResumeSecondPhase), 0.6f);
         }
         else
