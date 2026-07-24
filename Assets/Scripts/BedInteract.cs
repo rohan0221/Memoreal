@@ -8,6 +8,7 @@ public class BedInteract : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
+            InteractPromptUI.Instance.Hide();
             DayCycleManager.Instance.EndDay();
         }
     }
