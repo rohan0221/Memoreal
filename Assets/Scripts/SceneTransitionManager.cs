@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager Instance;
 
-    public Image fadeOverlay;
+    public EyeVignetteController eyeVignette;
     public float fadeDuration = 0.5f;
 
     string pendingSpawnPointName;
@@ -27,10 +26,10 @@ public class SceneTransitionManager : MonoBehaviour
 
     IEnumerator DoTransition(string sceneName)
     {
-        yield return StartCoroutine(Fade(0f, 1f));
+        yield return StartCoroutine(eyeVignette.AnimateTo(0f, fadeDuration)); // close
 
         SceneManager.LoadScene(sceneName);
-        yield return null; // wait one frame for the new scene's objects to exist
+        yield return null;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject spawnPoint = GameObject.Find(pendingSpawnPointName);
@@ -44,21 +43,6 @@ public class SceneTransitionManager : MonoBehaviour
             if (cc != null) cc.enabled = true;
         }
 
-        yield return StartCoroutine(Fade(1f, 0f));
-    }
-
-    IEnumerator Fade(float from, float to)
-    {
-        float t = 0f;
-        var c = fadeOverlay.color;
-        while (t < fadeDuration)
-        {
-            t += Time.deltaTime;
-            c.a = Mathf.Lerp(from, to, t / fadeDuration);
-            fadeOverlay.color = c;
-            yield return null;
-        }
-        c.a = to;
-        fadeOverlay.color = c;
+        yield return StartCoroutine(eyeVignette.AnimateTo(1f, fadeDuration)); // open
     }
 }

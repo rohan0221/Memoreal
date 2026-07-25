@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fa6f64b765f364a9bea70f3124871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionManager
-  fadeOverlay: {fileID: 941605821}
+  eyeVignette: {fileID: 941605824}
   fadeDuration: 0.5
 --- !u!4 &641543327
 Transform:
@@ -590,6 +590,7 @@ GameObject:
   - component: {fileID: 941605823}
   - component: {fileID: 941605822}
   - component: {fileID: 941605821}
+  - component: {fileID: 941605824}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -649,11 +650,27 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102822749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &941605824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941605820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517427aca7769664ca4f8c2a364a38c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EyeVignetteController
+  vignetteImage: {fileID: 941605821}
+  frames:
+  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1865892606
 GameObject:
   m_ObjectHideFlags: 0
