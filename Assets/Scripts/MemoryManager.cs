@@ -6,7 +6,7 @@ public class MemoryManager : MonoBehaviour
     public static MemoryManager Instance;
     public bool touchUnlocked, hearingUnlocked, smellUnlocked, tasteUnlocked, guiltRevealed;
     public bool wheelchairActive;
-
+    public bool mirrorSeen; // Day 1 tutorial gate, separate from the Touch memory flag
     public event Action OnStateChanged;
 
     void Awake()

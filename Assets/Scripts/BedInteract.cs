@@ -8,6 +8,12 @@ public class BedInteract : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
+            if (!DayCycleManager.Instance.IsDayObjectiveComplete())
+            {
+                DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet — there's something you still need to do." });
+                return;
+            }
+
             InteractPromptUI.Instance.Hide();
             DayCycleManager.Instance.EndDay();
         }
