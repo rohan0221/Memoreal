@@ -898,6 +898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorTrigger
   targetSceneName: HospitalRoom
   targetSpawnPointName: SpawnFromBathroom
+  playerCamera: {fileID: 559231765}
+  facingAngleThreshold: 45
 --- !u!65 &901828980
 BoxCollider:
   m_ObjectHideFlags: 0

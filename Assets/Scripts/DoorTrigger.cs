@@ -4,14 +4,34 @@ public class DoorTrigger : MonoBehaviour
 {
     public string targetSceneName;
     public string targetSpawnPointName;
+    public Transform playerCamera; // drag the scene's first-person camera here
+    public float facingAngleThreshold = 45f;
     bool playerNearby;
+    bool promptShown;
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (playerNearby)
         {
-            InteractPromptUI.Instance.Hide();
-            SceneTransitionManager.Instance.TransitionTo(targetSceneName, targetSpawnPointName);
+            bool facing = FacingCheck.IsFacing(playerCamera, transform.position, facingAngleThreshold);
+
+            if (facing && !promptShown)
+            {
+                InteractPromptUI.Instance.Show();
+                promptShown = true;
+            }
+            else if (!facing && promptShown)
+            {
+                InteractPromptUI.Instance.Hide();
+                promptShown = false;
+            }
+
+            if (facing && Input.GetKeyDown(KeyCode.E))
+            {
+                InteractPromptUI.Instance.Hide();
+                promptShown = false;
+                SceneTransitionManager.Instance.TransitionTo(targetSceneName, targetSpawnPointName);
+            }
         }
     }
 
@@ -20,7 +40,6 @@ public class DoorTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
-            InteractPromptUI.Instance.Show();
         }
     }
 
@@ -29,7 +48,11 @@ public class DoorTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
-            InteractPromptUI.Instance.Hide();
+            if (promptShown)
+            {
+                InteractPromptUI.Instance.Hide();
+                promptShown = false;
+            }
         }
     }
 }

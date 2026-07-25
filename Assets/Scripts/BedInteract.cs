@@ -2,20 +2,40 @@ using UnityEngine;
 
 public class BedInteract : MonoBehaviour
 {
+    public Transform playerCamera; // drag the scene's first-person camera here
+    public float facingAngleThreshold = 45f;
     bool playerNearby;
+    bool promptShown;
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (playerNearby)
         {
-            if (!DayCycleManager.Instance.IsDayObjectiveComplete())
+            bool facing = FacingCheck.IsFacing(playerCamera, transform.position, facingAngleThreshold);
+
+            if (facing && !promptShown)
             {
-                DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet — there's something you still need to do." });
-                return;
+                InteractPromptUI.Instance.Show();
+                promptShown = true;
+            }
+            else if (!facing && promptShown)
+            {
+                InteractPromptUI.Instance.Hide();
+                promptShown = false;
             }
 
-            InteractPromptUI.Instance.Hide();
-            DayCycleManager.Instance.EndDay();
+            if (facing && Input.GetKeyDown(KeyCode.E))
+            {
+                if (!DayCycleManager.Instance.IsDayObjectiveComplete())
+                {
+                    DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet — there's something you still need to do." });
+                    return;
+                }
+
+                InteractPromptUI.Instance.Hide();
+                promptShown = false;
+                DayCycleManager.Instance.EndDay();
+            }
         }
     }
 
@@ -24,7 +44,6 @@ public class BedInteract : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
-            InteractPromptUI.Instance.Show();
         }
     }
 
@@ -33,7 +52,11 @@ public class BedInteract : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
-            InteractPromptUI.Instance.Hide();
+            if (promptShown)
+            {
+                InteractPromptUI.Instance.Hide();
+                promptShown = false;
+            }
         }
     }
 }
