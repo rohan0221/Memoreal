@@ -5,6 +5,7 @@ public class MemoryTrigger : MonoBehaviour
     public Recolourable.MemoryFlag governingFlag;
     public Sprite[] memoryFrames;
     public float jitterInterval = 0.15f;
+    public Transform focusPoint; // optional — if left empty, falls back to this object's own transform
     bool playerNearby;
 
     void Update()
@@ -12,7 +13,8 @@ public class MemoryTrigger : MonoBehaviour
         if (playerNearby && !MemoryCutsceneController.Instance.IsActive && Input.GetKeyDown(KeyCode.E))
         {
             InteractPromptUI.Instance.Hide();
-            MemoryCutsceneController.Instance.PlayMemory(transform, memoryFrames, jitterInterval, OnMemoryComplete);
+            Transform target = focusPoint != null ? focusPoint : transform;
+            MemoryCutsceneController.Instance.PlayMemory(target, memoryFrames, jitterInterval, OnMemoryComplete);
         }
     }
 
