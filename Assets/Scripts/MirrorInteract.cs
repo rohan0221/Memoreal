@@ -2,47 +2,48 @@ using UnityEngine;
 
 public class MirrorInteract : MonoBehaviour
 {
-    public GameObject mirrorCameraRig;
-    public Camera mainCamera;
-    public PlayerMovement playerMovementScript; // whatever your player controller script is called
+    public MirrorViewController mirrorView;
+    public MonoBehaviour playerMovementScript;
+    public MonoBehaviour firstPersonLookScript;
     bool playerNearby;
-    bool inMirrorView;
 
     void Update()
     {
-        if (playerNearby && !inMirrorView && Input.GetKeyDown(KeyCode.E))
+        if (mirrorView.IsViewing)
         {
-            EnterMirror();
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
+            {
+                mirrorView.StopViewing();
+                playerMovementScript.enabled = true;
+                firstPersonLookScript.enabled = true;
+            }
+            return;
         }
-        else if (inMirrorView && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
+
+        if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            ExitMirror();
+            InteractPromptUI.Instance.Hide();
+            playerMovementScript.enabled = false;
+            firstPersonLookScript.enabled = false;
+            mirrorView.StartViewing();
         }
-    }
-
-    void EnterMirror()
-    {
-        inMirrorView = true;
-        mainCamera.gameObject.SetActive(false);
-        mirrorCameraRig.SetActive(true);
-        if (playerMovementScript != null) playerMovementScript.enabled = false;
-    }
-
-    void ExitMirror()
-    {
-        inMirrorView = false;
-        mirrorCameraRig.SetActive(false);
-        mainCamera.gameObject.SetActive(true);
-        if (playerMovementScript != null) playerMovementScript.enabled = true;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) playerNearby = true;
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+            InteractPromptUI.Instance.Show();
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) playerNearby = false;
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = false;
+            InteractPromptUI.Instance.Hide();
+        }
     }
 }

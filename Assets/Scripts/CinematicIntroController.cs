@@ -18,12 +18,12 @@ public class CinematicIntroController : MonoBehaviour
         parallaxScript.enabled = false;
 
         contentImage.sprite = blurryImage;
-        yield return StartCoroutine(vignette.AnimateTo(1f, 1.2f)); // open, reveal blurry
+        yield return StartCoroutine(vignette.PlayOpen());
         yield return new WaitForSeconds(0.3f);
-        yield return StartCoroutine(vignette.AnimateTo(0f, 0.6f)); // close
+        yield return StartCoroutine(vignette.PlayClose());
 
         contentImage.sprite = clearImage;
-        yield return StartCoroutine(vignette.AnimateTo(1f, 1.2f)); // open again, reveal clear
+        yield return StartCoroutine(vignette.PlayOpen());
 
         parallaxScript.enabled = true;
 
@@ -31,7 +31,7 @@ public class CinematicIntroController : MonoBehaviour
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space));
 
         parallaxScript.enabled = false;
-        yield return StartCoroutine(vignette.AnimateTo(0f, 0.3f)); // blink to black
+        yield return StartCoroutine(vignette.PlayClose());
 
         SceneTransitionManager.Instance.TransitionTo(nextSceneName, nextSpawnPointName);
     }

@@ -668,9 +668,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EyeVignetteController
   vignetteImage: {fileID: 941605821}
-  frames:
-  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  closeFrames:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  openFrames:
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  frameRate: 12
 --- !u!1 &1865892606
 GameObject:
   m_ObjectHideFlags: 0
