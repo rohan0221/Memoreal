@@ -234,7 +234,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f4b4aa9dbfdb894fbf3db87d64a1a1f, type: 3}
   - {fileID: 21300000, guid: a6d7b4f6f71f27f43b80d30afd3d03bb, type: 3}
   jitterInterval: 0.15
-  focusPoint: {fileID: 1303699701}
+  cutsceneViewPoint: {fileID: 1064027908}
 --- !u!65 &350108683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -482,6 +482,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8751908588744018210, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1303699701}
+    - targetCorrespondingSourceObject: {fileID: -8751908588744018210, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1064027908}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -8068073526183931155, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
@@ -906,6 +909,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1064027907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1064027908}
+  m_Layer: 0
+  m_Name: WatchCutsceneCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1064027908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064027907}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 10.944, y: 2.94, z: -6.438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1284258755}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &1275869714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
