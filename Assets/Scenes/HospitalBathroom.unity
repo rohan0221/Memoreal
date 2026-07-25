@@ -355,7 +355,11 @@ PrefabInstance:
     - target: {fileID: 1766569411819690585, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 137430215}
+      objectReference: {fileID: 137430214}
+    - target: {fileID: 1766569411819690585, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 559231767}
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerCamera
       value: 
@@ -363,11 +367,11 @@ PrefabInstance:
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 137430215}
+      objectReference: {fileID: 137430214}
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: firstPersonLookScript
       value: 
-      objectReference: {fileID: 137430215}
+      objectReference: {fileID: 559231767}
     - target: {fileID: 6504439875613461483, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.37779
@@ -411,7 +415,11 @@ PrefabInstance:
     - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 137430215}
+      objectReference: {fileID: 137430214}
+    - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 559231767}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

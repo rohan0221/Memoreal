@@ -710,6 +710,10 @@ PrefabInstance:
       propertyPath: playerMovementScript
       value: 
       objectReference: {fileID: 1973676987}
+    - target: {fileID: 1766569411819690585, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 507579771}
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerCamera
       value: 
@@ -766,6 +770,10 @@ PrefabInstance:
       propertyPath: playerMovementScript
       value: 
       objectReference: {fileID: 1973676987}
+    - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 507579771}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

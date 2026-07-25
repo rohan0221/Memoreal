@@ -380,7 +380,11 @@ PrefabInstance:
     - target: {fileID: 1766569411819690585, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 1620019169}
+      objectReference: {fileID: 1620019168}
+    - target: {fileID: 1766569411819690585, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 251572417}
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerCamera
       value: 
@@ -388,11 +392,11 @@ PrefabInstance:
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 1620019169}
+      objectReference: {fileID: 1620019168}
     - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: firstPersonLookScript
       value: 
-      objectReference: {fileID: 1620019169}
+      objectReference: {fileID: 251572417}
     - target: {fileID: 6504439875613461483, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.37779
@@ -436,7 +440,11 @@ PrefabInstance:
     - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 1620019169}
+      objectReference: {fileID: 1620019168}
+    - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 251572417}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -577,10 +585,10 @@ PrefabInstance:
       addedObject: {fileID: 1792275607}
     - targetCorrespondingSourceObject: {fileID: -4763477561096220160, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1620019169}
+      addedObject: {fileID: 1620019168}
     - targetCorrespondingSourceObject: {fileID: -4763477561096220160, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1620019168}
+      addedObject: {fileID: 1620019169}
     - targetCorrespondingSourceObject: {fileID: -4763477561096220160, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1620019167}
