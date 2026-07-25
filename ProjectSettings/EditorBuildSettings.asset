@@ -15,12 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/HospitalRoom.unity
     guid: f11ed47c2de29cf47bd4578bdd0decfb
   - enabled: 1
+    path: Assets/Scenes/HospitalBathroom.unity
+    guid: 036145964282f1a4f9381dbd215bbe49
+  - enabled: 0
     path: Assets/Scenes/TestRoom.unity
     guid: def2c11bda901d74fb3284cfe132911d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestRoom2.unity
     guid: 8a015d0f1d7e6ca409f69782b84f85e5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Day1.unity
     guid: dbdb32c368be23f41b82889c69b9f406
   - enabled: 0

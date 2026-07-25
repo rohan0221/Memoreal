@@ -1797,4 +1797,3 @@ MonoBehaviour:
   vignetteOverlay: {fileID: 6468974023048554226}
   dayText: {fileID: 5129139511769701869}
   playerMovementScript: {fileID: 0}
-  bedSpawnPoint: {fileID: 0}
