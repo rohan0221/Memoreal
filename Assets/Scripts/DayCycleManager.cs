@@ -13,7 +13,7 @@ public class DayCycleManager : MonoBehaviour
     public Image vignetteOverlay;
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
-
+    public MonoBehaviour firstPersonLookScript; 
     float distanceTravelled;
     int currentDay = 1;
     int attemptsToday;
@@ -65,7 +65,7 @@ public class DayCycleManager : MonoBehaviour
     {
         if (!IsDayObjectiveComplete())
         {
-            distanceTravelled = blackoutDistance - 1f; // stops it retriggering every frame
+            distanceTravelled = blackoutDistance - 1f;
             DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet — there's something you still need to do." });
             return;
         }
@@ -73,6 +73,7 @@ public class DayCycleManager : MonoBehaviour
         inBlackout = true;
         SetVignetteAlpha(1f);
         playerMovementScript.enabled = false;
+        firstPersonLookScript.enabled = false; // add this
 
         float multiplier = 1f + (currentDay - 1) * 0.15f + attemptsToday * 0.1f;
         attemptsToday++;
@@ -113,6 +114,7 @@ public class DayCycleManager : MonoBehaviour
             distanceTravelled = 0f;
             SetVignetteAlpha(0f);
             playerMovementScript.enabled = true;
+            firstPersonLookScript.enabled = true; // add this
         }
         else
         {
@@ -123,6 +125,7 @@ public class DayCycleManager : MonoBehaviour
     public void EndDay()
     {
         playerMovementScript.enabled = false;
+        firstPersonLookScript.enabled = false; // add this
         currentDay++;
         attemptsToday = 0;
         distanceTravelled = 0f;

@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI speakerText;
     public TextMeshProUGUI lineText;
     public MonoBehaviour playerMovementScript;
+    public MonoBehaviour firstPersonLookScript;
 
     public bool IsActive { get; private set; }
 
@@ -30,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     {
         IsActive = true;
         playerMovementScript.enabled = false;
+        firstPersonLookScript.enabled = false; // add this
         dialoguePanel.SetActive(true);
 
         foreach (string line in lines)
@@ -37,12 +39,13 @@ public class DialogueManager : MonoBehaviour
             speakerText.text = speaker;
             lineText.text = line;
 
-            yield return new WaitForSeconds(0.15f); // avoids the triggering keypress instantly skipping
+            yield return new WaitForSeconds(0.15f);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space));
         }
 
         dialoguePanel.SetActive(false);
         playerMovementScript.enabled = true;
+        firstPersonLookScript.enabled = true; // add this
         IsActive = false;
         onComplete?.Invoke();
     }
