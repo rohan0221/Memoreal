@@ -20,7 +20,7 @@ public class DoorTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
-            InteractPromptUI.Instance.Show(transform);
+            InteractPromptUI.Instance.Show();
         }
     }
 
