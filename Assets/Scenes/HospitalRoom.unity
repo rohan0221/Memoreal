@@ -272,6 +272,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &306336848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306336849}
+  m_Layer: 0
+  m_Name: SpawnFromHallway
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306336849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306336848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.73, y: 5.54, z: 0.296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &376002749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,6 +321,18 @@ PrefabInstance:
       objectReference: {fileID: 1845415830}
     - target: {fileID: 1766569411819690585, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 1620019169}
+    - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 251572419}
+    - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 1620019169}
+    - target: {fileID: 5386293043128967225, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
       value: 
       objectReference: {fileID: 1620019169}
     - target: {fileID: 6504439875613461483, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
@@ -332,6 +375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 1620019169}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -452,6 +499,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 251572415}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8068073526183931155, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 418867572}
+    - targetCorrespondingSourceObject: {fileID: -8068073526183931155, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 418867571}
     - targetCorrespondingSourceObject: {fileID: 5092708244707826562, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 418867568}
@@ -508,6 +561,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.886172, y: 9.56695, z: 2.9638298}
   m_Center: {x: 2.9101286, y: 0.8219422, z: 0.30191472}
+--- !u!1 &418867570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8068073526183931155, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+  m_PrefabInstance: {fileID: 418867566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &418867571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418867570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f2d0c01bef629409aaa5475ca669b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorTrigger
+  targetSceneName: Hallway
+  targetSpawnPointName: SpawnFromRoom
+--- !u!65 &418867572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418867570}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.886172, y: 9.56695, z: 2.9638298}
+  m_Center: {x: 2.9101286, y: 0.8219422, z: 0.30191568}
 --- !u!1 &1012946956
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,13 +752,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055759165}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.71039706, z: -0, w: 0.70380116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.029, y: 5.54, z: -10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90.534, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1620019163 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4763477561096220160, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
@@ -768,3 +861,4 @@ SceneRoots:
   - {fileID: 376002749}
   - {fileID: 1845415830}
   - {fileID: 1055759166}
+  - {fileID: 306336849}
