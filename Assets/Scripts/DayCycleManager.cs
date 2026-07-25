@@ -13,7 +13,6 @@ public class DayCycleManager : MonoBehaviour
     public Image vignetteOverlay;
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
-    public Transform bedSpawnPoint;
 
     float distanceTravelled;
     int currentDay = 1;
@@ -105,25 +104,14 @@ public class DayCycleManager : MonoBehaviour
         currentDay++;
         attemptsToday = 0;
         distanceTravelled = 0f;
-        SetVignetteAlpha(0f);
         dayText.text = "DAY " + currentDay;
         dayText.gameObject.SetActive(true);
-        Invoke(nameof(HideDayTextAndResume), 2f);
+        Invoke(nameof(GoToBedroom), 2f);
     }
 
-    void HideDayTextAndResume()
+    void GoToBedroom()
     {
         dayText.gameObject.SetActive(false);
-
-        if (bedSpawnPoint != null)
-        {
-            var cc = playerMovementScript.GetComponent<CharacterController>();
-            if (cc != null) cc.enabled = false;
-            playerMovementScript.transform.position = bedSpawnPoint.position;
-            playerMovementScript.transform.rotation = bedSpawnPoint.rotation;
-            if (cc != null) cc.enabled = true;
-        }
-
-        playerMovementScript.enabled = true;
+        SceneTransitionManager.Instance.TransitionTo("HospitalRoom", "BedSpawnPoint");
     }
 }

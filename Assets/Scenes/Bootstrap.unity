@@ -230,7 +230,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 941605823}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 641543327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -530,7 +530,8 @@ Transform:
   m_LocalPosition: {x: -18.43851, y: 6.07326, z: -5.82681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 102822749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690161676
@@ -562,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97551a76f7a0ac48a544c6f1d6ce012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bootstrap
-  sceneToLoad: TestRoom
+  sceneToLoad: HospitalRoom
 --- !u!4 &690161678
 Transform:
   m_ObjectHideFlags: 0
@@ -788,6 +789,5 @@ SceneRoots:
   - {fileID: 1865892608}
   - {fileID: 690161678}
   - {fileID: 154926323}
-  - {fileID: 102822749}
   - {fileID: 65264163}
   - {fileID: 641543327}
