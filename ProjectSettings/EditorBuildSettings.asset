@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Bootstrap.unity
     guid: 32d85dd1b7312064dbf7e912f0e09828
   - enabled: 1
+    path: Assets/Scenes/HospitalRoom.unity
+    guid: f11ed47c2de29cf47bd4578bdd0decfb
+  - enabled: 1
     path: Assets/Scenes/TestRoom.unity
     guid: def2c11bda901d74fb3284cfe132911d
   - enabled: 1
