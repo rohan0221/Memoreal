@@ -5,27 +5,27 @@ using UnityEngine.UI;
 public class EyeVignetteController : MonoBehaviour
 {
     public Image vignetteImage;
-    public Sprite[] frames; // frame[0] = fully closed (black), last frame = fully open
-    float currentProgress = 0f; // 0 = closed, 1 = open
+    public Sprite[] closeFrames; // eye open -> fully closed (last frame should be solid black)
+    public Sprite[] openFrames;  // fully closed -> eye open
+    public float frameRate = 12f; // frames per second
 
-    public IEnumerator AnimateTo(float target, float duration)
+    public IEnumerator PlayClose()
     {
-        float start = currentProgress;
-        float t = 0f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            SetProgress(Mathf.Lerp(start, target, t / duration));
-            yield return null;
-        }
-        SetProgress(target);
+        yield return PlaySequence(closeFrames);
     }
 
-    void SetProgress(float t)
+    public IEnumerator PlayOpen()
     {
-        currentProgress = Mathf.Clamp01(t);
-        float scaled = currentProgress * (frames.Length - 1);
-        int index = Mathf.RoundToInt(scaled);
-        vignetteImage.sprite = frames[index];
+        yield return PlaySequence(openFrames);
+    }
+
+    IEnumerator PlaySequence(Sprite[] frames)
+    {
+        float frameDuration = 1f / frameRate;
+        foreach (Sprite frame in frames)
+        {
+            vignetteImage.sprite = frame;
+            yield return new WaitForSeconds(frameDuration);
+        }
     }
 }

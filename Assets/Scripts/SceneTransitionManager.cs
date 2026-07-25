@@ -26,7 +26,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     IEnumerator DoTransition(string sceneName)
     {
-        yield return StartCoroutine(eyeVignette.AnimateTo(0f, fadeDuration)); // close
+        yield return StartCoroutine(eyeVignette.PlayClose());
 
         SceneManager.LoadScene(sceneName);
         yield return null;
@@ -43,6 +43,6 @@ public class SceneTransitionManager : MonoBehaviour
             if (cc != null) cc.enabled = true;
         }
 
-        yield return StartCoroutine(eyeVignette.AnimateTo(1f, fadeDuration)); // open
+        yield return StartCoroutine(eyeVignette.PlayOpen());
     }
 }
