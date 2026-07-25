@@ -42,6 +42,7 @@ public class DayCycleManager : MonoBehaviour
     public void AddDistance(float amount)
     {
         if (inBlackout) return;
+        if (!IsDayObjectiveComplete()) return; // don't even start counting steps/vignette until the day's task is done
 
         distanceTravelled += amount;
 
@@ -63,17 +64,10 @@ public class DayCycleManager : MonoBehaviour
 
     void TriggerBlackout()
     {
-        if (!IsDayObjectiveComplete())
-        {
-            distanceTravelled = blackoutDistance - 1f;
-            DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet — there's something you still need to do." });
-            return;
-        }
-
         inBlackout = true;
         SetVignetteAlpha(1f);
         playerMovementScript.enabled = false;
-        firstPersonLookScript.enabled = false; // add this
+        firstPersonLookScript.enabled = false;
 
         float multiplier = 1f + (currentDay - 1) * 0.15f + attemptsToday * 0.1f;
         attemptsToday++;
