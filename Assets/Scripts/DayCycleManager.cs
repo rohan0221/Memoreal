@@ -49,6 +49,11 @@ public class DayCycleManager : MonoBehaviour
         float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, distanceTravelled);
         SetVignetteAlpha(t);
 
+        if (t > 0.05f)
+        {
+            TutorialHintUI.Instance.ShowHint("step_limit_warning", "You have a limited amount of steps per day, use them wisely.");
+        }
+
         if (distanceTravelled >= blackoutDistance)
         {
             TriggerBlackout();
@@ -69,12 +74,26 @@ public class DayCycleManager : MonoBehaviour
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
 
+        if (!MemoryManager.Instance.HasShownHint("skill_check_explain"))
+        {
+            MemoryManager.Instance.MarkHintShown("skill_check_explain");
+            DialogueManager.Instance.StartDialogue("", new string[] {
+                "Press space to land the clock arms on the eye indicators to extend your day's steps.",
+                "Some content will only be available in later days."
+            }, BeginSkillCheck);
+        }
+        else
+        {
+            BeginSkillCheck();
+        }
+    }
+    
+    void BeginSkillCheck()
+    {
         float multiplier = 1f + (currentDay - 1) * 0.15f + attemptsToday * 0.1f;
         attemptsToday++;
-
         SkillCheckController.Instance.StartCheck(OnSkillCheckResult, multiplier);
     }
-
     public void OnPartialSuccess()
     {
         StartCoroutine(FlashRelief());
@@ -108,11 +127,11 @@ public class DayCycleManager : MonoBehaviour
             distanceTravelled = 0f;
             SetVignetteAlpha(0f);
             playerMovementScript.enabled = true;
-            firstPersonLookScript.enabled = true; // add this
+            firstPersonLookScript.enabled = true;
         }
         else
         {
-            EndDay();
+            DialogueManager.Instance.StartDialogue("", new string[] { "You passed out..." }, EndDay);
         }
     }
 

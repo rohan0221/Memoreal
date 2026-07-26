@@ -28,6 +28,7 @@ public class InteractPromptUI : MonoBehaviour
         if (fadeRoutine != null) StopCoroutine(fadeRoutine);
         fadeRoutine = StartCoroutine(Fade(1f));
         if (bobRoutine == null) bobRoutine = StartCoroutine(Bob());
+        TutorialHintUI.Instance.ShowHint("e_hint", "Press E to interact");
     }
 
     public void Hide()
