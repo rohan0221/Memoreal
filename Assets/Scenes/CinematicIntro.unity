@@ -687,7 +687,7 @@ MonoBehaviour:
   blurryImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   clearImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   parallaxScript: {fileID: 524529816}
-  gateDuration: 4
+  gateDuration: 1
   nextSceneName: HospitalRoom
   nextSpawnPointName: BedSpawnPoint
 --- !u!4 &1484081282

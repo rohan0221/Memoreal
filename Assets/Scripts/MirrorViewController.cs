@@ -13,6 +13,7 @@ public class MirrorViewController : MonoBehaviour
     public GameObject captionRoot; // small text object inside MirrorViewCanvas, start disabled
     public TextMeshProUGUI captionText;
     Vector2 basePosition;
+    Vector2 accumulatedOffset;
     float jitterTimer;
     int frameIndex;
     bool isViewing;
@@ -29,6 +30,7 @@ public class MirrorViewController : MonoBehaviour
         viewCanvas.SetActive(true);
         frameIndex = 0;
         jitterTimer = 0f;
+        accumulatedOffset = Vector2.zero;
         displayImage.sprite = frames[0];
     }
 
@@ -46,12 +48,14 @@ public class MirrorViewController : MonoBehaviour
             displayImage.sprite = frames[frameIndex];
         }
 
-        Vector2 mouseNorm = new Vector2(
-            (Input.mousePosition.x / Screen.width) - 0.5f,
-            (Input.mousePosition.y / Screen.height) - 0.5f
-        );
-        imageRect.anchoredPosition = basePosition - mouseNorm * 2f * maxParallaxOffset;
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+        accumulatedOffset += new Vector2(-mouseX, -mouseY) * 1f;
+        accumulatedOffset = Vector2.ClampMagnitude(accumulatedOffset, maxParallaxOffset);
+
+        imageRect.anchoredPosition = basePosition + accumulatedOffset;
     }
+
     public void ShowCaptionOnce()
     {
         if (MemoryManager.Instance.HasShownHint("mirror_caption")) return;
@@ -59,10 +63,11 @@ public class MirrorViewController : MonoBehaviour
         captionText.text = "Recover your senses as you search for context.";
         captionRoot.SetActive(true);
     }
+
     public void StopViewing()
     {
         isViewing = false;
         viewCanvas.SetActive(false);
-        captionRoot.SetActive(false); // add this
+        captionRoot.SetActive(false);
     }
 }
