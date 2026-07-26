@@ -767,6 +767,7 @@ MonoBehaviour:
   playerCamera: {fileID: 460082055}
   facingAngleThreshold: 45
   minDayRequired: 1
+  facingCheckPoint: {fileID: 0}
 --- !u!65 &418867569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -810,6 +811,7 @@ MonoBehaviour:
   playerCamera: {fileID: 460082055}
   facingAngleThreshold: 45
   minDayRequired: 3
+  facingCheckPoint: {fileID: 0}
 --- !u!65 &418867572
 BoxCollider:
   m_ObjectHideFlags: 0

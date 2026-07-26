@@ -6,7 +6,8 @@ public class DoorTrigger : MonoBehaviour
     public string targetSpawnPointName;
     public Transform playerCamera;
     public float facingAngleThreshold = 45f;
-    public int minDayRequired = 1; // door only opens once currentDay >= this
+    public int minDayRequired = 1;
+    public Transform facingCheckPoint; // optional — falls back to this object's own transform if empty
     bool playerNearby;
     bool promptShown;
 
@@ -14,7 +15,8 @@ public class DoorTrigger : MonoBehaviour
     {
         if (playerNearby)
         {
-            bool facing = FacingCheck.IsFacing(playerCamera, transform.position, facingAngleThreshold);
+            Transform checkTarget = facingCheckPoint != null ? facingCheckPoint : transform;
+            bool facing = FacingCheck.IsFacing(playerCamera, checkTarget.position, facingAngleThreshold);
 
             if (facing && !promptShown)
             {
