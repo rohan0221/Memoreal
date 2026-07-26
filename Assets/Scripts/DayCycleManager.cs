@@ -94,6 +94,9 @@ public class DayCycleManager : MonoBehaviour
     
     void BeginSkillCheck()
     {
+        playerMovementScript.enabled = false;
+        firstPersonLookScript.enabled = false;
+
         float multiplier = 1f + (MemoryManager.Instance.currentDay - 1) * 0.15f + MemoryManager.Instance.attemptsToday * 0.1f;
         MemoryManager.Instance.attemptsToday++;
         SkillCheckController.Instance.StartCheck(OnSkillCheckResult, multiplier);

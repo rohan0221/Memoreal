@@ -794,7 +794,7 @@ MonoBehaviour:
   targetSpawnPointName: SpawnFromRoom
   playerCamera: {fileID: 460082055}
   facingAngleThreshold: 45
-  minDayRequired: 2
+  minDayRequired: 3
 --- !u!65 &418867572
 BoxCollider:
   m_ObjectHideFlags: 0
