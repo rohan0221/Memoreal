@@ -407,6 +407,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6d7b4f6f71f27f43b80d30afd3d03bb, type: 3}
   jitterInterval: 0.15
   cutsceneViewPoint: {fileID: 1064027908}
+  postMemoryDialogueLines: []
 --- !u!65 &350108683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -662,6 +663,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: 8
       addedObject: {fileID: 252968715}
+    - targetCorrespondingSourceObject: {fileID: 8717312889043087111, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1391955138}
     - targetCorrespondingSourceObject: {fileID: -8751908588744018210, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1303699701}
@@ -717,6 +721,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8816982502579141820, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 151452306}
+    - targetCorrespondingSourceObject: {fileID: -5983532798112357502, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917603405}
+    - targetCorrespondingSourceObject: {fileID: -5983532798112357502, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917603407}
+    - targetCorrespondingSourceObject: {fileID: -5983532798112357502, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917603406}
     - targetCorrespondingSourceObject: {fileID: -1807970279642858887, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 939727859}
@@ -1287,6 +1300,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1284258755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1391955137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391955138}
+  m_Layer: 0
+  m_Name: TVCutsceneCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391955138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391955137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 31.96, y: -0.6999998, z: 0.13399982}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1917603402}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1682073288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1579,6 +1623,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1917603401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5983532798112357502, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+  m_PrefabInstance: {fileID: 418867566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1917603402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8717312889043087111, guid: 67e4bc3a10afba249908202f7b41646a, type: 3}
+  m_PrefabInstance: {fileID: 418867566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1917603405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917603401}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 30, y: 20, z: 6}
+  m_Center: {x: 40, y: -0.49136078, z: -0.06299567}
+--- !u!114 &1917603406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917603401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1897b648b1a8a9547b86ca772206a353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recolourable
+  governingFlag: 1
+  greyMaterial: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+  colourMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &1917603407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917603401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cc1b1ec6e0df64280301a56190fdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MemoryTrigger
+  governingFlag: 1
+  memoryFrames:
+  - {fileID: 21300000, guid: 4f4b4aa9dbfdb894fbf3db87d64a1a1f, type: 3}
+  - {fileID: 21300000, guid: a6d7b4f6f71f27f43b80d30afd3d03bb, type: 3}
+  jitterInterval: 0.3
+  cutsceneViewPoint: {fileID: 1391955138}
+  postMemoryDialogueLines:
+  - You should be resting.
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
