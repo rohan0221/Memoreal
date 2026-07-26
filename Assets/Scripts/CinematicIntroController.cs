@@ -31,8 +31,6 @@ public class CinematicIntroController : MonoBehaviour
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space));
 
         parallaxScript.enabled = false;
-        yield return StartCoroutine(vignette.PlayClose());
-
         SceneTransitionManager.Instance.TransitionTo(nextSceneName, nextSpawnPointName);
     }
 }

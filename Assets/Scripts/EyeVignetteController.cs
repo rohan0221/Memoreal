@@ -9,14 +9,18 @@ public class EyeVignetteController : MonoBehaviour
     public Sprite[] openFrames;  // fully closed -> eye open
     public float frameRate = 12f; // frames per second
 
-    public IEnumerator PlayClose()
-    {
-        yield return PlaySequence(closeFrames);
-    }
-
     public IEnumerator PlayOpen()
     {
+        vignetteImage.enabled = true;
         yield return PlaySequence(openFrames);
+        vignetteImage.enabled = false; // hide it completely once fully open
+    }
+
+    public IEnumerator PlayClose()
+    {
+        vignetteImage.enabled = true;
+        yield return PlaySequence(closeFrames);
+        vignetteImage.enabled = false; // hide it completely once fully closed
     }
 
     IEnumerator PlaySequence(Sprite[] frames)
@@ -27,5 +31,11 @@ public class EyeVignetteController : MonoBehaviour
             vignetteImage.sprite = frame;
             yield return new WaitForSeconds(frameDuration);
         }
+    }
+    public void HoldClosed()
+    {
+        vignetteImage.enabled = true;
+        if (closeFrames.Length > 0)
+            vignetteImage.sprite = closeFrames[closeFrames.Length - 1];
     }
 }

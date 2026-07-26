@@ -29,7 +29,9 @@ public class SceneTransitionManager : MonoBehaviour
         yield return StartCoroutine(eyeVignette.PlayClose());
 
         SceneManager.LoadScene(sceneName);
+        eyeVignette.HoldClosed(); // reassert immediately after load, before anything else runs
         yield return null;
+        yield return null; // extra frame buffer so the new scene's rendering settles before we open
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject spawnPoint = GameObject.Find(pendingSpawnPointName);
