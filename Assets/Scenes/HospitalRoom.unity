@@ -355,6 +355,14 @@ PrefabInstance:
       propertyPath: firstPersonLookScript
       value: 
       objectReference: {fileID: 460082057}
+    - target: {fileID: 7289354203267631008, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 252968718}
+    - target: {fileID: 7289354203267631008, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 460082057}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -554,7 +562,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.886172, y: 9.56695, z: 5}
+  m_Size: {x: 9.886172, y: 9.56695, z: 2.5}
   m_Center: {x: 2.9101286, y: 0.8219422, z: 0.30191472}
 --- !u!1 &418867570 stripped
 GameObject:

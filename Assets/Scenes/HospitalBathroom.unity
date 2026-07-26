@@ -274,6 +274,14 @@ PrefabInstance:
       propertyPath: firstPersonLookScript
       value: 
       objectReference: {fileID: 1002244704}
+    - target: {fileID: 7289354203267631008, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 1861707001}
+    - target: {fileID: 7289354203267631008, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: firstPersonLookScript
+      value: 
+      objectReference: {fileID: 1002244704}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

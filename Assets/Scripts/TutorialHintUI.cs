@@ -8,8 +8,11 @@ public class TutorialHintUI : MonoBehaviour
     public GameObject hintRoot;
     public TextMeshProUGUI hintText;
     public CanvasGroup canvasGroup;
+    public MonoBehaviour playerMovementScript;
+    public MonoBehaviour firstPersonLookScript;
     public float displayDuration = 3f;
     public float fadeDuration = 0.3f;
+    public float inputFreezeDuration = 1f;
     Coroutine activeRoutine;
 
     void Awake()
@@ -33,8 +36,17 @@ public class TutorialHintUI : MonoBehaviour
         hintText.text = text;
         canvasGroup.alpha = 0f;
 
+        playerMovementScript.enabled = false;
+        firstPersonLookScript.enabled = false;
+
         yield return StartCoroutine(Fade(0f, 1f));
-        yield return new WaitForSeconds(displayDuration);
+
+        yield return new WaitForSeconds(inputFreezeDuration);
+
+        playerMovementScript.enabled = true;
+        firstPersonLookScript.enabled = true;
+
+        yield return new WaitForSeconds(Mathf.Max(0f, displayDuration - inputFreezeDuration));
         yield return StartCoroutine(Fade(1f, 0f));
 
         hintRoot.SetActive(false);
