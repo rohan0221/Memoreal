@@ -10,9 +10,9 @@ public class TutorialHintUI : MonoBehaviour
     public CanvasGroup canvasGroup;
     public MonoBehaviour playerMovementScript;
     public MonoBehaviour firstPersonLookScript;
-    public float displayDuration = 3f;
     public float fadeDuration = 0.3f;
     public float inputFreezeDuration = 1f;
+    public float postInputDelay = 0.5f;
     Coroutine activeRoutine;
 
     void Awake()
@@ -46,7 +46,14 @@ public class TutorialHintUI : MonoBehaviour
         playerMovementScript.enabled = true;
         firstPersonLookScript.enabled = true;
 
-        yield return new WaitForSeconds(Mathf.Max(0f, displayDuration - inputFreezeDuration));
+        yield return new WaitUntil(() =>
+            Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) ||
+            Input.GetKeyDown(KeyCode.E)
+        );
+
+        yield return new WaitForSeconds(postInputDelay);
+
         yield return StartCoroutine(Fade(1f, 0f));
 
         hintRoot.SetActive(false);
