@@ -4,8 +4,9 @@ public class DoorTrigger : MonoBehaviour
 {
     public string targetSceneName;
     public string targetSpawnPointName;
-    public Transform playerCamera; // drag the scene's first-person camera here
+    public Transform playerCamera;
     public float facingAngleThreshold = 45f;
+    public int minDayRequired = 1; // door only opens once currentDay >= this
     bool playerNearby;
     bool promptShown;
 
@@ -28,6 +29,12 @@ public class DoorTrigger : MonoBehaviour
 
             if (facing && Input.GetKeyDown(KeyCode.E))
             {
+                if (DayCycleManager.Instance.GetCurrentDay() < minDayRequired)
+                {
+                    DialogueManager.Instance.StartDialogue("", new string[] { "The door is locked." });
+                    return;
+                }
+
                 InteractPromptUI.Instance.Hide();
                 promptShown = false;
                 SceneTransitionManager.Instance.TransitionTo(targetSceneName, targetSpawnPointName);
