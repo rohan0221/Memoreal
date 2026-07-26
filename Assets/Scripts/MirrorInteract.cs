@@ -16,7 +16,7 @@ public class MirrorInteract : MonoBehaviour
                 mirrorView.StopViewing();
                 playerMovementScript.enabled = true;
                 firstPersonLookScript.enabled = true;
-                MemoryManager.Instance.mirrorSeen = true;
+                MemoryManager.Instance.mirrorCheckedToday = true;
             }
             return;
         }

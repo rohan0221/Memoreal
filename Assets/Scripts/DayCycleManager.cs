@@ -14,9 +14,6 @@ public class DayCycleManager : MonoBehaviour
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
     public MonoBehaviour firstPersonLookScript; 
-    float distanceTravelled;
-    int currentDay = 1;
-    int attemptsToday;
     bool inBlackout;
 
     void Awake()
@@ -24,29 +21,36 @@ public class DayCycleManager : MonoBehaviour
         Instance = this;
     }
 
-    public int GetCurrentDay() => currentDay;
+    void Start()
+    {
+        // Re-sync the visual vignette to match persisted progress after a scene reload
+        float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, MemoryManager.Instance.distanceTravelled);
+        SetVignetteAlpha(IsDayObjectiveComplete() ? t : 0f);
+    }
+
+    public int GetCurrentDay() => MemoryManager.Instance.currentDay;
 
     public bool IsDayObjectiveComplete()
     {
         var m = MemoryManager.Instance;
-        switch (currentDay)
+        switch (m.currentDay)
         {
-            case 1: return m.mirrorSeen;
-            case 2: return m.touchUnlocked;
-            case 3: return m.hearingUnlocked;
-            case 6: return m.guiltRevealed;
-            default: return true; // Day 4/5/7 end via their own scripted events, not this gate
+            case 1: return m.mirrorCheckedToday;
+            case 2: return m.mirrorCheckedToday && m.touchUnlocked;
+            case 3: return m.mirrorCheckedToday && m.hearingUnlocked;
+            case 6: return m.mirrorCheckedToday && m.guiltRevealed;
+            default: return true;
         }
     }
 
     public void AddDistance(float amount)
     {
         if (inBlackout) return;
-        if (!IsDayObjectiveComplete()) return; // don't even start counting steps/vignette until the day's task is done
+        if (!IsDayObjectiveComplete()) return;
 
-        distanceTravelled += amount;
+        MemoryManager.Instance.distanceTravelled += amount;
 
-        float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, distanceTravelled);
+        float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, MemoryManager.Instance.distanceTravelled);
         SetVignetteAlpha(t);
 
         if (t > 0.05f)
@@ -54,7 +58,7 @@ public class DayCycleManager : MonoBehaviour
             TutorialHintUI.Instance.ShowHint("step_limit_warning", "You have a limited amount of steps per day, use them wisely.");
         }
 
-        if (distanceTravelled >= blackoutDistance)
+        if (MemoryManager.Instance.distanceTravelled >= blackoutDistance)
         {
             TriggerBlackout();
         }
@@ -90,10 +94,11 @@ public class DayCycleManager : MonoBehaviour
     
     void BeginSkillCheck()
     {
-        float multiplier = 1f + (currentDay - 1) * 0.15f + attemptsToday * 0.1f;
-        attemptsToday++;
+        float multiplier = 1f + (MemoryManager.Instance.currentDay - 1) * 0.15f + MemoryManager.Instance.attemptsToday * 0.1f;
+        MemoryManager.Instance.attemptsToday++;
         SkillCheckController.Instance.StartCheck(OnSkillCheckResult, multiplier);
     }
+
     public void OnPartialSuccess()
     {
         StartCoroutine(FlashRelief());
@@ -124,7 +129,7 @@ public class DayCycleManager : MonoBehaviour
 
         if (passed)
         {
-            distanceTravelled = 0f;
+            MemoryManager.Instance.distanceTravelled = 0f;
             SetVignetteAlpha(0f);
             playerMovementScript.enabled = true;
             firstPersonLookScript.enabled = true;
@@ -138,11 +143,12 @@ public class DayCycleManager : MonoBehaviour
     public void EndDay()
     {
         playerMovementScript.enabled = false;
-        firstPersonLookScript.enabled = false; // add this
-        currentDay++;
-        attemptsToday = 0;
-        distanceTravelled = 0f;
-        dayText.text = "DAY " + currentDay;
+        firstPersonLookScript.enabled = false;
+        MemoryManager.Instance.currentDay++;
+        MemoryManager.Instance.attemptsToday = 0;
+        MemoryManager.Instance.distanceTravelled = 0f;
+        MemoryManager.Instance.mirrorCheckedToday = false; // reset for the new day
+        dayText.text = "DAY " + MemoryManager.Instance.currentDay;
         dayText.gameObject.SetActive(true);
         Invoke(nameof(GoToBedroom), 2f);
     }

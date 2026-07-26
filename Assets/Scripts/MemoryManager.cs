@@ -7,9 +7,11 @@ public class MemoryManager : MonoBehaviour
     public static MemoryManager Instance;
     public bool touchUnlocked, hearingUnlocked, smellUnlocked, tasteUnlocked, guiltRevealed;
     public bool wheelchairActive;
-    public bool mirrorSeen;
+    public bool mirrorCheckedToday;
     public event Action OnStateChanged;
-
+    public int currentDay = 1;
+    public float distanceTravelled;
+    public int attemptsToday;
     HashSet<string> shownHints = new HashSet<string>();
 
     void Awake()
