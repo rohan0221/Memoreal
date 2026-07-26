@@ -623,6 +623,7 @@ MonoBehaviour:
   targetSpawnPointName: SpawnFromBathroom
   playerCamera: {fileID: 1002244705}
   facingAngleThreshold: 45
+  minDayRequired: 1
 --- !u!65 &901828980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -701,6 +702,7 @@ MonoBehaviour:
   targetSpawnPointName: SpawnFromBathroom
   playerCamera: {fileID: 1002244705}
   facingAngleThreshold: 45
+  minDayRequired: 1
 --- !u!1 &1002244703
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1789521037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,8 +928,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -958,7 +960,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -406.88748, y: 121.781815, z: -404.93787, w: -156.37752}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -986,11 +988,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 882442337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: -214}
+  m_SizeDelta: {x: 0, y: 50}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &1861706996
 PrefabInstance:
   m_ObjectHideFlags: 0
