@@ -408,6 +408,7 @@ MonoBehaviour:
   jitterInterval: 0.15
   cutsceneViewPoint: {fileID: 1064027908}
   postMemoryDialogueLines: []
+  requiredDay: 2
 --- !u!65 &350108683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1689,6 +1690,7 @@ MonoBehaviour:
   cutsceneViewPoint: {fileID: 1391955138}
   postMemoryDialogueLines:
   - You should be resting.
+  requiredDay: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

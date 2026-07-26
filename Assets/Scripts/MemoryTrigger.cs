@@ -6,13 +6,21 @@ public class MemoryTrigger : MonoBehaviour
     public Sprite[] memoryFrames;
     public float jitterInterval = 0.15f;
     public Transform cutsceneViewPoint;
-    public string[] postMemoryDialogueLines; // optional — leave empty array if not needed
+    public string[] postMemoryDialogueLines;
+    public int requiredDay = 0; // 0 = no restriction, any other value = must match exactly
     bool playerNearby;
 
     void Update()
     {
         if (playerNearby && !MemoryCutsceneController.Instance.IsActive && !DialogueManager.Instance.IsActive && Input.GetKeyDown(KeyCode.E))
         {
+            if (requiredDay != 0 && MemoryManager.Instance.currentDay != requiredDay)
+            {
+                InteractPromptUI.Instance.Hide();
+                DialogueManager.Instance.StartDialogue("", new string[] { "There's nothing to do here right now." });
+                return;
+            }
+
             InteractPromptUI.Instance.Hide();
             MemoryCutsceneController.Instance.PlayMemory(cutsceneViewPoint, memoryFrames, jitterInterval, OnMemoryComplete);
         }
