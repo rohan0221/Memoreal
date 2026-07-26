@@ -192,7 +192,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1500, y: 1000}
+  m_SizeDelta: {x: 2000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &371929645
 PrefabInstance:
@@ -328,9 +328,9 @@ MonoBehaviour:
   imageRect: {fileID: 297713831}
   displayImage: {fileID: 297713829}
   frames:
-  - {fileID: 21300000, guid: 4f4b4aa9dbfdb894fbf3db87d64a1a1f, type: 3}
-  - {fileID: 21300000, guid: a6d7b4f6f71f27f43b80d30afd3d03bb, type: 3}
-  jitterInterval: 0.15
+  - {fileID: 21300000, guid: 6ba251928389f8647a05f35a2ab909e2, type: 3}
+  - {fileID: 21300000, guid: a4e240eaf80c9a54e9510cd0ad4d438a, type: 3}
+  jitterInterval: 0.3
   maxParallaxOffset: 40
   captionRoot: {fileID: 1789521036}
   captionText: {fileID: 1789521037}
