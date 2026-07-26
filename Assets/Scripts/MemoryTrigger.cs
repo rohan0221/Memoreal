@@ -7,7 +7,8 @@ public class MemoryTrigger : MonoBehaviour
     public float jitterInterval = 0.15f;
     public Transform cutsceneViewPoint;
     public string[] postMemoryDialogueLines;
-    public int requiredDay = 0; // 0 = no restriction, any other value = must match exactly
+    public int requiredDay = 0;
+    public string wrongDayMessage = "There's nothing to do here right now.";
     bool playerNearby;
 
     void Update()
@@ -17,7 +18,7 @@ public class MemoryTrigger : MonoBehaviour
             if (requiredDay != 0 && MemoryManager.Instance.currentDay != requiredDay)
             {
                 InteractPromptUI.Instance.Hide();
-                DialogueManager.Instance.StartDialogue("", new string[] { "There's nothing to do here right now." });
+                DialogueManager.Instance.StartDialogue("", new string[] { wrongDayMessage });
                 return;
             }
 

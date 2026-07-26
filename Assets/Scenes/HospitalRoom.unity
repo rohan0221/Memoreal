@@ -409,6 +409,7 @@ MonoBehaviour:
   cutsceneViewPoint: {fileID: 1064027908}
   postMemoryDialogueLines: []
   requiredDay: 2
+  wrongDayMessage: Is this mine?
 --- !u!65 &350108683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1691,6 +1692,7 @@ MonoBehaviour:
   postMemoryDialogueLines:
   - You should be resting.
   requiredDay: 3
+  wrongDayMessage: It's turned off.
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
