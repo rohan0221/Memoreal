@@ -27,6 +27,7 @@ public class MirrorInteract : MonoBehaviour
             playerMovementScript.enabled = false;
             firstPersonLookScript.enabled = false;
             mirrorView.StartViewing();
+            mirrorView.ShowCaptionOnce();
         }
     }
 
