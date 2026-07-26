@@ -16,6 +16,8 @@ public class DayCycleManager : MonoBehaviour
     public MonoBehaviour firstPersonLookScript; 
     bool inBlackout;
 
+    const int guiltRevealDay = 6;
+
     void Awake()
     {
         Instance = this;
@@ -26,6 +28,27 @@ public class DayCycleManager : MonoBehaviour
         // Re-sync the visual vignette to match persisted progress after a scene reload
         float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, MemoryManager.Instance.distanceTravelled);
         SetVignetteAlpha(IsDayObjectiveComplete() ? t : 0f);
+
+        if (MemoryManager.Instance.currentDay == 1 && !MemoryManager.Instance.HasShownHint("day1_countdown_intro"))
+        {
+            MemoryManager.Instance.MarkHintShown("day1_countdown_intro");
+            StartCoroutine(ShowCountdownBriefly());
+        }
+    }
+
+    string GetCountdownLabel(int day)
+    {
+        int daysLeft = guiltRevealDay - day;
+        if (daysLeft == 1) return "1 DAY LEFT";
+        return daysLeft + " DAYS LEFT";
+    }
+
+    IEnumerator ShowCountdownBriefly()
+    {
+        dayText.text = GetCountdownLabel(1);
+        dayText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        dayText.gameObject.SetActive(false);
     }
 
     public int GetCurrentDay() => MemoryManager.Instance.currentDay;
@@ -150,8 +173,8 @@ public class DayCycleManager : MonoBehaviour
         MemoryManager.Instance.currentDay++;
         MemoryManager.Instance.attemptsToday = 0;
         MemoryManager.Instance.distanceTravelled = 0f;
-        MemoryManager.Instance.mirrorCheckedToday = false; // reset for the new day
-        dayText.text = "DAY " + MemoryManager.Instance.currentDay;
+        MemoryManager.Instance.mirrorCheckedToday = false;
+        dayText.text = GetCountdownLabel(MemoryManager.Instance.currentDay);
         dayText.gameObject.SetActive(true);
         Invoke(nameof(GoToBedroom), 2f);
     }
