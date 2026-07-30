@@ -3,7 +3,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
+    public float gravity = -20f;
     CharacterController controller;
+    Vector3 velocity;
 
     void Awake()
     {
@@ -17,5 +19,13 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        if (controller.isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f; // small constant downward force keeps it firmly grounded, prevents bouncing
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 }
