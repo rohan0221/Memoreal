@@ -63,7 +63,7 @@ public class DayCycleManager : MonoBehaviour
             case 2: return m.mirrorCheckedToday && m.touchUnlocked;
             case 3: return m.mirrorCheckedToday && m.hearingUnlocked;
             case 4: return m.smellUnlocked;
-            case 5: return m.tasteUnlocked; // not built yet — this will correctly block Day 5 blackout entirely until the soup memory exists
+            case 5: return m.mirrorCheckedToday && m.tasteUnlocked;
             case 6: return m.mirrorCheckedToday && m.guiltRevealed;
             default: return true;
         }

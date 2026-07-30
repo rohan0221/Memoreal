@@ -41,4 +41,16 @@ public class MemoryManager : MonoBehaviour
             case Recolourable.MemoryFlag.GuiltTwist: Unlock(ref guiltRevealed); break;
         }
     }
+    public bool IsFlagUnlocked(Recolourable.MemoryFlag flag)
+    {
+        switch (flag)
+        {
+            case Recolourable.MemoryFlag.Touch: return touchUnlocked;
+            case Recolourable.MemoryFlag.Hearing: return hearingUnlocked;
+            case Recolourable.MemoryFlag.Smell: return smellUnlocked;
+            case Recolourable.MemoryFlag.Taste: return tasteUnlocked;
+            case Recolourable.MemoryFlag.GuiltTwist: return guiltRevealed;
+            default: return false;
+        }
+    }
 }

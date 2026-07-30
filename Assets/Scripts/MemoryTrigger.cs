@@ -6,10 +6,13 @@ public class MemoryTrigger : MonoBehaviour
     public Sprite[] memoryFrames;
     public float jitterInterval = 0.15f;
     public Transform cutsceneViewPoint;
-    public string[] preMemoryDialogueLines; // optional — plays before the memory starts
-    public string[] postMemoryDialogueLines; // optional — plays after
+    public string[] preMemoryDialogueLines;
+    public string[] postMemoryDialogueLines;
     public int requiredDay = 0;
     public string wrongDayMessage = "There's nothing to do here right now.";
+    public string afterCompletionMessage = ""; // shown instead, once this memory's already been done
+    public GameObject objectToHideOnComplete;
+    public GameObject objectToShowOnComplete;
     bool playerNearby;
 
     void Update()
@@ -19,7 +22,11 @@ public class MemoryTrigger : MonoBehaviour
             if (requiredDay != 0 && MemoryManager.Instance.currentDay != requiredDay)
             {
                 InteractPromptUI.Instance.Hide();
-                DialogueManager.Instance.StartDialogue("", new string[] { wrongDayMessage });
+
+                bool alreadyDone = MemoryManager.Instance.IsFlagUnlocked(governingFlag);
+                string message = (alreadyDone && !string.IsNullOrEmpty(afterCompletionMessage)) ? afterCompletionMessage : wrongDayMessage;
+
+                DialogueManager.Instance.StartDialogue("", new string[] { message });
                 return;
             }
 
@@ -44,6 +51,9 @@ public class MemoryTrigger : MonoBehaviour
     void OnMemoryComplete()
     {
         MemoryManager.Instance.UnlockByFlag(governingFlag);
+
+        if (objectToHideOnComplete != null) objectToHideOnComplete.SetActive(false);
+        if (objectToShowOnComplete != null) objectToShowOnComplete.SetActive(true);
 
         if (postMemoryDialogueLines != null && postMemoryDialogueLines.Length > 0)
         {
