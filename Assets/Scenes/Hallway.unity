@@ -229,15 +229,16 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: -9049481308309175150, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
     - {fileID: 4459105445701050777, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+    - {fileID: 305853495847762579, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
       insertIndex: 15
       addedObject: {fileID: 330787372}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
-      insertIndex: 20
+      insertIndex: 19
       addedObject: {fileID: 2105326751}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
-      insertIndex: 21
+      insertIndex: 20
       addedObject: {fileID: 410259138}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
@@ -297,67 +298,17 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4007347832416555591, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 502825765}
-    - targetCorrespondingSourceObject: {fileID: 305853495847762579, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 265475124}
-    - targetCorrespondingSourceObject: {fileID: 305853495847762579, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 265475127}
   m_SourcePrefab: {fileID: 100100000, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
 --- !u!4 &265475121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
   m_PrefabInstance: {fileID: 265475120}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &265475122 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 305853495847762579, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
-  m_PrefabInstance: {fileID: 265475120}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &265475124
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265475122}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 10.197363, z: 6}
-  m_Center: {x: 10, y: 5.0279436, z: -10}
 --- !u!1 &265475125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
   m_PrefabInstance: {fileID: 265475120}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &265475127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265475122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f2d0c01bef629409aaa5475ca669b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorTrigger
-  targetSceneName: HospitalRoom
-  targetSpawnPointName: SpawnFromHallway
-  playerCamera: {fileID: 954305292}
-  facingAngleThreshold: 45
-  minDayRequired: 0
-  facingCheckPoint: {fileID: 0}
 --- !u!114 &265475128
 MonoBehaviour:
   m_ObjectHideFlags: 0

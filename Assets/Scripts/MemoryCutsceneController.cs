@@ -23,14 +23,14 @@ public class MemoryCutsceneController : MonoBehaviour
 
     void Awake() { Instance = this; }
 
-    public void PlayMemory(Transform cutsceneViewPoint, Sprite[] frames, float jitterInt, Action onCompleteCallback)
+    public void PlayMemory(Transform viewPoint, Sprite[] frames, float jitterInt, Action onCompleteCallback)
     {
         if (IsActive) return;
         IsActive = true;
         onComplete = onCompleteCallback;
         currentFrames = frames;
         jitterInterval = jitterInt;
-        StartCoroutine(PlaySequence(cutsceneViewPoint));
+        StartCoroutine(PlaySequence(viewPoint));
     }
 
     IEnumerator PlaySequence(Transform viewPoint)
@@ -38,14 +38,12 @@ public class MemoryCutsceneController : MonoBehaviour
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
 
-        // Store where the camera actually belongs (as local values, relative to its player parent)
         Vector3 originalLocalPos = playerCamera.transform.localPosition;
         Quaternion originalLocalRot = playerCamera.transform.localRotation;
 
         Vector3 startWorldPos = playerCamera.transform.position;
         Quaternion startWorldRot = playerCamera.transform.rotation;
 
-        // Move the camera to the designated cutscene vantage point
         float t = 0f;
         while (t < cameraMoveDuration)
         {
@@ -58,7 +56,6 @@ public class MemoryCutsceneController : MonoBehaviour
         playerCamera.transform.position = viewPoint.position;
         playerCamera.transform.rotation = viewPoint.rotation;
 
-        // Show the memory image
         memoryImage.sprite = currentFrames[0];
         yield return StartCoroutine(FadeCanvas(memoryImageGroup, 0f, 1f, fadeDuration));
 
@@ -68,7 +65,6 @@ public class MemoryCutsceneController : MonoBehaviour
 
         yield return StartCoroutine(FadeCanvas(memoryImageGroup, 1f, 0f, fadeDuration));
 
-        // Move the camera back to the player's head, using LOCAL values since it's still parented to the player
         Vector3 returnStartPos = playerCamera.transform.localPosition;
         Quaternion returnStartRot = playerCamera.transform.localRotation;
 
@@ -89,6 +85,24 @@ public class MemoryCutsceneController : MonoBehaviour
         IsActive = false;
 
         onComplete?.Invoke();
+    }
+
+    public IEnumerator RotateCameraTo(Transform target, float duration)
+    {
+        playerMovementScript.enabled = false;
+        firstPersonLookScript.enabled = false;
+
+        Quaternion startRot = playerCamera.transform.rotation;
+        Quaternion targetRot = Quaternion.LookRotation((target.position - playerCamera.transform.position).normalized);
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            playerCamera.transform.rotation = Quaternion.Slerp(startRot, targetRot, t / duration);
+            yield return null;
+        }
+        playerCamera.transform.rotation = targetRot;
     }
 
     IEnumerator JitterLoop()
