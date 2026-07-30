@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BedInteract : MonoBehaviour
 {
-    public Transform playerCamera; // drag the scene's first-person camera here
+    public Transform playerCamera;
     public float facingAngleThreshold = 45f;
     bool playerNearby;
     bool promptShown;
@@ -13,18 +13,18 @@ public class BedInteract : MonoBehaviour
         {
             bool facing = FacingCheck.IsFacing(playerCamera, transform.position, facingAngleThreshold);
 
-            if (facing && !promptShown)
+            if (facing && !promptShown && !DayCycleManager.Instance.IsBusy)
             {
                 InteractPromptUI.Instance.Show();
                 promptShown = true;
             }
-            else if (!facing && promptShown)
+            else if ((!facing || DayCycleManager.Instance.IsBusy) && promptShown)
             {
                 InteractPromptUI.Instance.Hide();
                 promptShown = false;
             }
 
-            if (facing && Input.GetKeyDown(KeyCode.E))
+            if (facing && !DayCycleManager.Instance.IsBusy && Input.GetKeyDown(KeyCode.E))
             {
                 if (!DayCycleManager.Instance.IsDayObjectiveComplete())
                 {

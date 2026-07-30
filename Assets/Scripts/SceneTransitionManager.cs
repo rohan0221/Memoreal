@@ -9,6 +9,7 @@ public class SceneTransitionManager : MonoBehaviour
     public EyeVignetteController eyeVignette;
     public float fadeDuration = 0.5f;
 
+    public bool IsTransitioning { get; private set; }
     string pendingSpawnPointName;
 
     void Awake()
@@ -20,6 +21,8 @@ public class SceneTransitionManager : MonoBehaviour
 
     public void TransitionTo(string sceneName, string spawnPointName)
     {
+        if (IsTransitioning) return;
+        IsTransitioning = true;
         pendingSpawnPointName = spawnPointName;
         StartCoroutine(DoTransition(sceneName));
     }
@@ -29,9 +32,9 @@ public class SceneTransitionManager : MonoBehaviour
         yield return StartCoroutine(eyeVignette.PlayClose());
 
         SceneManager.LoadScene(sceneName);
-        eyeVignette.HoldClosed(); // reassert immediately after load, before anything else runs
+        eyeVignette.HoldClosed();
         yield return null;
-        yield return null; // extra frame buffer so the new scene's rendering settles before we open
+        yield return null;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject spawnPoint = GameObject.Find(pendingSpawnPointName);
@@ -46,5 +49,7 @@ public class SceneTransitionManager : MonoBehaviour
         }
 
         yield return StartCoroutine(eyeVignette.PlayOpen());
+
+        IsTransitioning = false;
     }
 }

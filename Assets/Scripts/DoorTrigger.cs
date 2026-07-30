@@ -29,7 +29,7 @@ public class DoorTrigger : MonoBehaviour
                 promptShown = false;
             }
 
-            if (facing && Input.GetKeyDown(KeyCode.E))
+            if (facing && Input.GetKeyDown(KeyCode.E) && !SceneTransitionManager.Instance.IsTransitioning)
             {
                 if (DayCycleManager.Instance.GetCurrentDay() < minDayRequired)
                 {

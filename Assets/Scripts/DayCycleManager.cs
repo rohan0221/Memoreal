@@ -14,8 +14,9 @@ public class DayCycleManager : MonoBehaviour
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
     public MonoBehaviour firstPersonLookScript; 
+    public bool IsBusy => isEndingDay || inBlackout;
     bool inBlackout;
-
+    bool isEndingDay;
     const int guiltRevealDay = 6;
 
     void Awake()
@@ -166,22 +167,33 @@ public class DayCycleManager : MonoBehaviour
         }
     }
 
+
     public void EndDay()
     {
+        if (isEndingDay) return;
+        isEndingDay = true;
+
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
+        StartCoroutine(EndDaySequence());
+    }
+
+    IEnumerator EndDaySequence()
+    {
+        yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, 0.4f));
+
         MemoryManager.Instance.currentDay++;
         MemoryManager.Instance.attemptsToday = 0;
         MemoryManager.Instance.distanceTravelled = 0f;
         MemoryManager.Instance.mirrorCheckedToday = false;
+
         dayText.text = GetCountdownLabel(MemoryManager.Instance.currentDay);
         dayText.gameObject.SetActive(true);
-        Invoke(nameof(GoToBedroom), 2f);
-    }
 
-    void GoToBedroom()
-    {
+        yield return new WaitForSeconds(2f);
+
         dayText.gameObject.SetActive(false);
+        isEndingDay = false;
         SceneTransitionManager.Instance.TransitionTo("HospitalRoom", "BedSpawnPoint");
     }
 }
