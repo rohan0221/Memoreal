@@ -56,7 +56,6 @@ public class StairwellSequence : MonoBehaviour
 
     void DoFall()
     {
-        MemoryManager.Instance.wheelchairActive = true;
         DayCycleManager.Instance.EndDay();
     }
 
