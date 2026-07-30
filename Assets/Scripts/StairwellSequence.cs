@@ -8,7 +8,7 @@ public class StairwellSequence : MonoBehaviour
     public Transform cutsceneViewPoint;
     public Transform doorLookPoint;
     public string[] nurseDialogueLines;
-    public Sprite jumpscareSprite;
+    public Sprite[] jumpscareFrames;
     public string requiredDayMessage = "There's nothing to do here right now.";
     public int requiredDay = 4;
 
@@ -43,10 +43,10 @@ public class StairwellSequence : MonoBehaviour
         yield return StartCoroutine(MemoryCutsceneController.Instance.RotateCameraTo(doorLookPoint, 1f));
 
         bool dialogueDone = false;
-        DialogueManager.Instance.StartDialogue("", nurseDialogueLines, () => dialogueDone = true);
+        DialogueManager.Instance.StartAlternatingDialogue("Nurse 1", "Nurse 2", nurseDialogueLines, () => dialogueDone = true);
         yield return new WaitUntil(() => dialogueDone);
 
-        JumpscareFlash.Instance.Play(jumpscareSprite, OnJumpscareShown);
+        JumpscareFlash.Instance.Play(jumpscareFrames, OnJumpscareShown);
     }
 
     void OnJumpscareShown()
