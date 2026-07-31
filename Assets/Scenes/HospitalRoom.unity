@@ -2098,7 +2098,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 224d49a52f43b3b45a0991b7270ff0a1, type: 3}
   - {fileID: 21300000, guid: 143dbcf9fefdeab40841b36eae2a760b, type: 3}
   jitterInterval: 0.15
-  cutsceneViewPoint: {fileID: 0}
+  cutsceneViewPoint: {fileID: 908326678}
   preMemoryDialogueLines: []
   postMemoryDialogueLines: []
   requiredDay: 5
