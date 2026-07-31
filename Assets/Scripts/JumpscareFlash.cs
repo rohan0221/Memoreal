@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,8 +6,8 @@ public class JumpscareFlash : MonoBehaviour
 {
     public static JumpscareFlash Instance;
     public Image flashImage;
-    public float holdDuration = 0.4f;
     public float jitterInterval = 0.08f;
+    Coroutine loopRoutine;
 
     void Awake()
     {
@@ -16,26 +15,27 @@ public class JumpscareFlash : MonoBehaviour
         flashImage.enabled = false;
     }
 
-    public void Play(Sprite[] jumpscareFrames, Action onComplete)
+    public void StartFlash(Sprite[] frames)
     {
-        StartCoroutine(FlashSequence(jumpscareFrames, onComplete));
+        Debug.Log("StartFlash called on: " + gameObject.name + " / " + gameObject.GetInstanceID() + " | flashImage: " + (flashImage != null ? flashImage.name + " " + flashImage.GetInstanceID() : "NULL"));
+        flashImage.enabled = true;
+        loopRoutine = StartCoroutine(JitterLoop(frames));
     }
 
-    IEnumerator FlashSequence(Sprite[] frames, Action onComplete)
+    public void StopFlash()
     {
-        flashImage.enabled = true;
+        if (loopRoutine != null) StopCoroutine(loopRoutine);
+        flashImage.enabled = false;
+    }
 
-        float elapsed = 0f;
+    IEnumerator JitterLoop(Sprite[] frames)
+    {
         int index = 0;
-        while (elapsed < holdDuration)
+        while (true)
         {
             flashImage.sprite = frames[index % frames.Length];
             index++;
             yield return new WaitForSeconds(jitterInterval);
-            elapsed += jitterInterval;
         }
-
-        flashImage.enabled = false;
-        onComplete?.Invoke();
     }
 }

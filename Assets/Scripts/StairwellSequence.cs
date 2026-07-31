@@ -43,19 +43,17 @@ public class StairwellSequence : MonoBehaviour
         yield return StartCoroutine(MemoryCutsceneController.Instance.RotateCameraTo(doorLookPoint, 1f));
 
         bool dialogueDone = false;
-        DialogueManager.Instance.StartAlternatingDialogue("Nurse 1", "Nurse 2", nurseDialogueLines, () => dialogueDone = true);
+        DialogueManager.Instance.StartAlternatingDialogue("", "", nurseDialogueLines, () => dialogueDone = true);
         yield return new WaitUntil(() => dialogueDone);
 
-        JumpscareFlash.Instance.Play(jumpscareFrames, OnJumpscareShown);
-    }
+        JumpscareFlash.Instance.StartFlash(jumpscareFrames);
+        yield return new WaitForSeconds(1f);
 
-    void OnJumpscareShown()
-    {
-        DialogueManager.Instance.StartDialogue("", new string[] { "You should be resting." }, DoFall);
-    }
+        bool restingLineDone = false;
+        DialogueManager.Instance.StartDialogue("", new string[] { "You should be resting." }, () => restingLineDone = true);
+        yield return new WaitUntil(() => restingLineDone);
 
-    void DoFall()
-    {
+        JumpscareFlash.Instance.StopFlash();
         DayCycleManager.Instance.EndDay();
     }
 
