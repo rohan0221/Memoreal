@@ -684,8 +684,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicIntroController
   contentImage: {fileID: 524529819}
-  blurryImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  clearImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  blurryFrames:
+  - {fileID: 21300000, guid: cee49f9dd0a876440977a825ca011dd5, type: 3}
+  - {fileID: 21300000, guid: b260c663aa73df647a327d6b7e59bc0c, type: 3}
+  clearFrames:
+  - {fileID: 21300000, guid: 8ff500b98b90c6f438705dbc8c893693, type: 3}
+  - {fileID: 21300000, guid: e006938c2838ae14793e35483fbb32a2, type: 3}
+  jitterInterval: 0.15
   parallaxScript: {fileID: 524529816}
   gateDuration: 1
   nextSceneName: HospitalRoom

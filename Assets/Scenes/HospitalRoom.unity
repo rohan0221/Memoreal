@@ -576,8 +576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MemoryTrigger
   governingFlag: 0
   memoryFrames:
-  - {fileID: 21300000, guid: 4f4b4aa9dbfdb894fbf3db87d64a1a1f, type: 3}
-  - {fileID: 21300000, guid: a6d7b4f6f71f27f43b80d30afd3d03bb, type: 3}
+  - {fileID: 21300000, guid: 62a1150092413b24a9d6a05da798b402, type: 3}
+  - {fileID: 21300000, guid: 974a01d98f7cd81448cfcbc8e235f5ff, type: 3}
   jitterInterval: 0.15
   cutsceneViewPoint: {fileID: 1064027908}
   preMemoryDialogueLines: []
@@ -2259,8 +2259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MemoryTrigger
   governingFlag: 1
   memoryFrames:
-  - {fileID: 21300000, guid: 4f4b4aa9dbfdb894fbf3db87d64a1a1f, type: 3}
-  - {fileID: 21300000, guid: a6d7b4f6f71f27f43b80d30afd3d03bb, type: 3}
+  - {fileID: 21300000, guid: b03dae1a649b37940a86c5f38b59ad51, type: 3}
+  - {fileID: 21300000, guid: e837998138b1d09498e1b67bdfdf49e8, type: 3}
   jitterInterval: 0.3
   cutsceneViewPoint: {fileID: 1391955138}
   preMemoryDialogueLines: []
