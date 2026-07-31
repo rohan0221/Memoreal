@@ -587,8 +587,6 @@ MonoBehaviour:
   guiltTwistFrames:
   - {fileID: 21300000, guid: 5215f678096fed346ac757fd86948b15, type: 3}
   - {fileID: 21300000, guid: b4e9dffa78b11b44f9c6a48870ab61a9, type: 3}
-  playerMovementScript: {fileID: 252968718}
-  firstPersonLookScript: {fileID: 460082057}
 --- !u!65 &350108683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1264,8 +1262,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 587328595}
   m_SourcePrefab: {fileID: 100100000, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+--- !u!1 &587328594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+  m_PrefabInstance: {fileID: 587328593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &587328595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587328594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c3314ef3cbe0a42a640547939f9472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrayVisibility
+  visibleOnDay: 6
 --- !u!1 &908326677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,8 +1910,29 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: -3796029674406720076, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1832433011}
   m_SourcePrefab: {fileID: 100100000, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+--- !u!1 &1832433010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+  m_PrefabInstance: {fileID: 1832433009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1832433011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832433010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c3314ef3cbe0a42a640547939f9472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrayVisibility
+  visibleOnDay: 6
 --- !u!1 &1840088812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,8 +2161,6 @@ MonoBehaviour:
   objectToShowOnComplete: {fileID: 0}
   guiltTwistDay: 0
   guiltTwistFrames: []
-  playerMovementScript: {fileID: 0}
-  firstPersonLookScript: {fileID: 0}
 --- !u!1001 &1981133318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2193,7 +2231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2257,8 +2295,6 @@ MonoBehaviour:
   objectToShowOnComplete: {fileID: 1297541406}
   guiltTwistDay: 0
   guiltTwistFrames: []
-  playerMovementScript: {fileID: 0}
-  firstPersonLookScript: {fileID: 0}
 --- !u!65 &1981133323
 BoxCollider:
   m_ObjectHideFlags: 0

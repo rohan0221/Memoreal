@@ -28,7 +28,7 @@ public class BedInteract : MonoBehaviour
             {
                 if (!DayCycleManager.Instance.IsDayObjectiveComplete())
                 {
-                    DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet — there's something you still need to do." });
+                    DialogueManager.Instance.StartDialogue("", new string[] { "You're not tired yet. Keep searching." });
                     return;
                 }
 
