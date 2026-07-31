@@ -583,6 +583,12 @@ MonoBehaviour:
   afterCompletionMessage: I hope she's okay...
   objectToHideOnComplete: {fileID: 0}
   objectToShowOnComplete: {fileID: 0}
+  guiltTwistDay: 6
+  guiltTwistFrames:
+  - {fileID: 21300000, guid: 5215f678096fed346ac757fd86948b15, type: 3}
+  - {fileID: 21300000, guid: b4e9dffa78b11b44f9c6a48870ab61a9, type: 3}
+  playerMovementScript: {fileID: 252968718}
+  firstPersonLookScript: {fileID: 460082057}
 --- !u!65 &350108683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1203,6 +1209,63 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1001 &587328593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.976
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2594132
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.25017515
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.647526
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6714367
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -87.923
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 137.751
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
+      propertyPath: m_Name
+      value: Tomato Soup Bowl Half-filled
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b72baab3e91c1d409e60a7d18dc0d56, type: 3}
 --- !u!1 &908326677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1815,84 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 32.986446, y: 27, z: 30}
   m_Center: {x: 0.67793405, y: -10.5, z: -14.274477}
+--- !u!1001 &1832433009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.2532635
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4542929
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.376019
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9658339
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25916204
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 30.041
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -351794877043969093, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: -351794877043969093, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98436654
+      objectReference: {fileID: 0}
+    - target: {fileID: -351794877043969093, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -351794877043969093, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.17613217
+      objectReference: {fileID: 0}
+    - target: {fileID: -351794877043969093, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 20.289
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_Name
+      value: Tomato Soup Tray (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -3796029674406720076, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
 --- !u!1 &1840088812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +2119,10 @@ MonoBehaviour:
   afterCompletionMessage: 
   objectToHideOnComplete: {fileID: 0}
   objectToShowOnComplete: {fileID: 0}
+  guiltTwistDay: 0
+  guiltTwistFrames: []
+  playerMovementScript: {fileID: 0}
+  firstPersonLookScript: {fileID: 0}
 --- !u!1001 &1981133318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,6 +2191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato Soup Tray
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2106,6 +2255,10 @@ MonoBehaviour:
   afterCompletionMessage: 
   objectToHideOnComplete: {fileID: 1981133321}
   objectToShowOnComplete: {fileID: 1297541406}
+  guiltTwistDay: 0
+  guiltTwistFrames: []
+  playerMovementScript: {fileID: 0}
+  firstPersonLookScript: {fileID: 0}
 --- !u!65 &1981133323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2155,3 +2308,5 @@ SceneRoots:
   - {fileID: 146553687}
   - {fileID: 1981133318}
   - {fileID: 908326678}
+  - {fileID: 1832433009}
+  - {fileID: 587328593}

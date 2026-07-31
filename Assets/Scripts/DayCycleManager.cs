@@ -179,12 +179,27 @@ public class DayCycleManager : MonoBehaviour
         firstPersonLookScript.enabled = false;
         StartCoroutine(EndDaySequence());
     }
-    
+
     public IEnumerator FadeToBlack(float duration)
     {
         yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, duration));
     }
 
+    public void EndGame()
+    {
+        StartCoroutine(EndGameSequence());
+    }
+
+    IEnumerator EndGameSequence()
+    {
+        yield return StartCoroutine(FadeToBlack(0.6f));
+
+        MemoryManager.Instance.currentDay++;
+        dayText.text = GetCountdownLabel(MemoryManager.Instance.currentDay);
+        dayText.gameObject.SetActive(true);
+        // stays here permanently — no scene transition, this is the end
+    }
+    
     IEnumerator EndDaySequence()
     {
         yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, 0.4f));

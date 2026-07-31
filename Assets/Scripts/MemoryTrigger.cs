@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MemoryTrigger : MonoBehaviour
@@ -10,37 +11,64 @@ public class MemoryTrigger : MonoBehaviour
     public string[] postMemoryDialogueLines;
     public int requiredDay = 0;
     public string wrongDayMessage = "There's nothing to do here right now.";
-    public string afterCompletionMessage = ""; // shown instead, once this memory's already been done
+    public string afterCompletionMessage = "";
     public GameObject objectToHideOnComplete;
     public GameObject objectToShowOnComplete;
+
+    [Header("Guilt Twist Override (optional)")]
+    public int guiltTwistDay = 0;
+    public Sprite[] guiltTwistFrames;
+
     bool playerNearby;
+    bool guiltTwistPlayed;
 
     void Update()
     {
-        if (playerNearby && !MemoryCutsceneController.Instance.IsActive && !DialogueManager.Instance.IsActive && Input.GetKeyDown(KeyCode.E))
+        if (!playerNearby || DialogueManager.Instance.IsActive || MemoryCutsceneController.Instance.IsActive) return;
+        if (!Input.GetKeyDown(KeyCode.E)) return;
+
+        if (guiltTwistDay != 0 && MemoryManager.Instance.currentDay == guiltTwistDay)
         {
-            if (requiredDay != 0 && MemoryManager.Instance.currentDay != requiredDay)
-            {
-                InteractPromptUI.Instance.Hide();
+            if (guiltTwistPlayed) return;
+            guiltTwistPlayed = true;
+            InteractPromptUI.Instance.Hide();
+            MemoryCutsceneController.Instance.PlayMemory(cutsceneViewPoint, guiltTwistFrames, jitterInterval, OnGuiltTwistMemoryComplete);
+            return;
+        }
 
-                bool alreadyDone = MemoryManager.Instance.IsFlagUnlocked(governingFlag);
-                string message = (alreadyDone && !string.IsNullOrEmpty(afterCompletionMessage)) ? afterCompletionMessage : wrongDayMessage;
-
-                DialogueManager.Instance.StartDialogue("", new string[] { message });
-                return;
-            }
-
+        if (requiredDay != 0 && MemoryManager.Instance.currentDay != requiredDay)
+        {
             InteractPromptUI.Instance.Hide();
 
-            if (preMemoryDialogueLines != null && preMemoryDialogueLines.Length > 0)
-            {
-                DialogueManager.Instance.StartDialogue("", preMemoryDialogueLines, StartMemory);
-            }
-            else
-            {
-                StartMemory();
-            }
+            bool alreadyDone = MemoryManager.Instance.IsFlagUnlocked(governingFlag);
+            string message = (alreadyDone && !string.IsNullOrEmpty(afterCompletionMessage)) ? afterCompletionMessage : wrongDayMessage;
+
+            DialogueManager.Instance.StartDialogue("", new string[] { message });
+            return;
         }
+
+        InteractPromptUI.Instance.Hide();
+
+        if (preMemoryDialogueLines != null && preMemoryDialogueLines.Length > 0)
+        {
+            DialogueManager.Instance.StartDialogue("", preMemoryDialogueLines, StartMemory);
+        }
+        else
+        {
+            StartMemory();
+        }
+    }
+
+    void OnGuiltTwistMemoryComplete()
+    {
+        MemoryManager.Instance.UnlockByFlag(Recolourable.MemoryFlag.GuiltTwist);
+        StartCoroutine(FadeAndEndGame());
+    }
+
+    IEnumerator FadeAndEndGame()
+    {
+        yield return StartCoroutine(DayCycleManager.Instance.FadeToBlack(0.6f));
+        DayCycleManager.Instance.EndGame();
     }
 
     void StartMemory()
