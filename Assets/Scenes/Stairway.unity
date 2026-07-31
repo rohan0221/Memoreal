@@ -872,6 +872,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6808503549062308710, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7219027472705936870, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       propertyPath: playerMovementScript
       value: 
@@ -1002,6 +1006,7 @@ MonoBehaviour:
   - Yeah... ****?
   - I can't believe what happened to that poor girl..
   - Honestly, I don't think she did it.
+  - Really?
   jumpscareFrames:
   - {fileID: 21300000, guid: 15e8fc183cc881a4e8dff400aab9543b, type: 3}
   - {fileID: 21300000, guid: e2db77d6534cf7544a882e997c23cde2, type: 3}

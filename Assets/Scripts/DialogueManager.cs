@@ -46,6 +46,7 @@ public class DialogueManager : MonoBehaviour
         foreach (string line in lines)
         {
             speakerText.text = speaker;
+            speakerText.gameObject.SetActive(!string.IsNullOrEmpty(speaker));
             lineText.text = line;
 
             yield return new WaitForSeconds(0.15f);
@@ -81,11 +82,13 @@ public class DialogueManager : MonoBehaviour
             if (isA)
             {
                 speakerTextLeft.text = speakerA;
+                speakerTextLeft.gameObject.SetActive(!string.IsNullOrEmpty(speakerA));
                 lineTextLeft.text = lines[i];
             }
             else
             {
                 speakerTextRight.text = speakerB;
+                speakerTextRight.gameObject.SetActive(!string.IsNullOrEmpty(speakerB));
                 lineTextRight.text = lines[i];
             }
 
