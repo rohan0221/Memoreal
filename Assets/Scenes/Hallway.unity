@@ -14,18 +14,18 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.057
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 3776415b8d326db4cb696fe00db0540e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -248,10 +248,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -7910539345509173323, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -3780181930899935619, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -3353851350922131968, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -2821550373222316230, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -2129628963668147175, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -1840708325309937939, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -1535877578278585634, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -985463414309322707, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: -465399271756913854, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 275295249224375972, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
       propertyPath: m_Name
       value: Hallway Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 2229032678205019293, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 2964194949204431102, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 3150587242317195568, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 6234732574135426413, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 7134292728500579487, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 7197494044387616662, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 8586060180623532350, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
+    - target: {fileID: 8666557963518193397, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -9049481308309175150, guid: 8fc4ba68677720c4186bddfa840336f0, type: 3}
@@ -463,6 +539,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a12b639aaccd1214a9c1848e7a2573ba, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
     - target: {fileID: 919132149155446097, guid: a12b639aaccd1214a9c1848e7a2573ba, type: 3}
       propertyPath: m_Name
       value: Double Doors Stairs
@@ -630,6 +710,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 160bd036b1884f749bf0dcb4ce8db0f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
     - target: {fileID: 919132149155446097, guid: 160bd036b1884f749bf0dcb4ce8db0f7, type: 3}
       propertyPath: m_Name
       value: Person Test Rotation3 (1)
@@ -1007,20 +1091,20 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 10
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -1070,13 +1154,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128736720}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.54752433, y: -0.3661313, z: 0.36492285, w: 0.6580246}
+  m_LocalPosition: {x: -17.4, y: 8.6, z: 30.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 81.037, y: -31.86, z: 30.606}
 --- !u!114 &1128736723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,6 +1605,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 907af81147ec66c4cba02e9ba95070d6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
     - target: {fileID: 919132149155446097, guid: 907af81147ec66c4cba02e9ba95070d6, type: 3}
       propertyPath: m_Name
       value: MC Door
