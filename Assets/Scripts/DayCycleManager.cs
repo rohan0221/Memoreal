@@ -40,10 +40,12 @@ public class DayCycleManager : MonoBehaviour
     string GetCountdownLabel(int day)
     {
         int daysLeft = guiltRevealDay - day;
+        if (daysLeft < 0) return "You're out of time.";
         if (daysLeft == 1) return "1 DAY LEFT";
+        if (daysLeft == 0) return "0 DAYS LEFT";
         return daysLeft + " DAYS LEFT";
     }
-
+    
     IEnumerator ShowCountdownBriefly()
     {
         dayText.text = GetCountdownLabel(1);
@@ -197,7 +199,13 @@ public class DayCycleManager : MonoBehaviour
         MemoryManager.Instance.currentDay++;
         dayText.text = GetCountdownLabel(MemoryManager.Instance.currentDay);
         dayText.gameObject.SetActive(true);
-        // stays here permanently — no scene transition, this is the end
+
+        yield return new WaitForSeconds(3f);
+
+    #if !UNITY_WEBGL
+        Application.Quit();
+    #endif
+        // On WebGL, execution just stops here — black screen with the final text stays up permanently, which is the standard/expected way to end a browser game.
     }
     
     IEnumerator EndDaySequence()
