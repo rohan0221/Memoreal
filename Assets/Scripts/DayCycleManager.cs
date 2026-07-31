@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections; 
+using UnityEngine.SceneManagement;
 
 public class DayCycleManager : MonoBehaviour
 {
@@ -202,12 +203,9 @@ public class DayCycleManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-    #if !UNITY_WEBGL
-        Application.Quit();
-    #endif
-        // On WebGL, execution just stops here — black screen with the final text stays up permanently, which is the standard/expected way to end a browser game.
+        SceneManager.LoadScene("MainMenu");
     }
-    
+
     IEnumerator EndDaySequence()
     {
         yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, 0.4f));
