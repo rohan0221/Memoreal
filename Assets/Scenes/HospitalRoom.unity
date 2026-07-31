@@ -299,7 +299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.47
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -307,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.2
+      value: -12.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1715,8 +1715,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 32.986446, y: 28.584661, z: 35.505592}
-  m_Center: {x: 0.67793405, y: -11.011913, z: -14.274477}
+  m_Size: {x: 32.986446, y: 33, z: 30}
+  m_Center: {x: 0.67793405, y: -11, z: -14.274477}
 --- !u!114 &1792275607
 MonoBehaviour:
   m_ObjectHideFlags: 0
