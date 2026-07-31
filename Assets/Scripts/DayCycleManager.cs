@@ -203,7 +203,8 @@ public class DayCycleManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        SceneManager.LoadScene("MainMenu");
+        SceneTransitionManager.Instance.eyeVignette.HoldClosed();
+        SceneTransitionManager.Instance.TransitionTo("MainMenu", "");
     }
 
     IEnumerator EndDaySequence()
