@@ -379,12 +379,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f1c4f4cd72137024aad281653ac70cd2, type: 3}
   hearingFrames:
   - {fileID: 21300000, guid: c32f7a83a1ec59844956cb3e630904ef, type: 3}
-  - {fileID: 21300000, guid: d19944f9b9c6a3f468a9b7e9c1b34929, type: 3}
-  smellFrames:
-  - {fileID: 21300000, guid: 1551e75175e84694d913e0ac35a69976, type: 3}
   - {fileID: 21300000, guid: 08a4009a6f751df4abd6b920f9369cfb, type: 3}
-  tasteFrames:
+  smellFrames:
+  - {fileID: 21300000, guid: d19944f9b9c6a3f468a9b7e9c1b34929, type: 3}
   - {fileID: 21300000, guid: c0c2fcc35772573479669c6a4eddb4e3, type: 3}
+  tasteFrames:
+  - {fileID: 21300000, guid: 1551e75175e84694d913e0ac35a69976, type: 3}
   - {fileID: 21300000, guid: 0497f84d8e77abc4492cd384dd1b30c4, type: 3}
   jitterInterval: 0.3
   maxParallaxOffset: 40
