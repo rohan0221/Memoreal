@@ -299,7 +299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.051207446
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -307,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.367111
+      value: -13.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -351,6 +351,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 146553689}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146553692}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146553691}
   m_SourcePrefab: {fileID: 100100000, guid: 8d1f2c77cd4998f41822846a1b2b99ca, type: 3}
 --- !u!1 &146553688 stripped
 GameObject:
@@ -400,6 +406,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.5, y: 6.5580907, z: 2.5}
   m_Center: {x: -0.000081539176, y: -0.990217, z: -0.017884675}
+--- !u!114 &146553691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146553688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c3314ef3cbe0a42a640547939f9472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrayVisibility
+  visibleOnDay: 5
+--- !u!114 &146553692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146553688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5699b02cf30e4884b9869357ba428dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueTrigger
+  watchFlag: 3
+  beforeLines:
+  - You can finally eat again!
+  - I left your soup next to your watch.
+  afterLines:
+  - Wow, you must've been starving!
 --- !u!64 &151452306
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1166,6 +1203,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &908326677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908326678}
+  m_Layer: 0
+  m_Name: CutsceneViewPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &908326678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908326677}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.2415446, z: -0, w: 0.9703897}
+  m_LocalPosition: {x: 8.769, y: 4.558, z: -22.945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -27.955, z: 0}
 --- !u!64 &939727859
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1991,6 +2059,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1981133322}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981133324}
     - targetCorrespondingSourceObject: {fileID: 1365014829529655172, guid: 87c15f00754080b419f0bb1803a581c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 87936482}
@@ -2056,6 +2127,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 6, z: 3}
   m_Center: {x: 0, y: -0.0029206276, z: 0}
+--- !u!114 &1981133324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981133320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c3314ef3cbe0a42a640547939f9472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrayVisibility
+  visibleOnDay: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2070,3 +2154,4 @@ SceneRoots:
   - {fileID: 1840088814}
   - {fileID: 146553687}
   - {fileID: 1981133318}
+  - {fileID: 908326678}
