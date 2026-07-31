@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.057
+  m_FogMode: 1
+  m_FogDensity: 0.012
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -1154,13 +1154,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128736720}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.54752433, y: -0.3661313, z: 0.36492285, w: 0.6580246}
-  m_LocalPosition: {x: -17.4, y: 8.6, z: 30.2}
+  m_LocalRotation: {x: 0.51097536, y: -0.40453565, z: 0.36061966, w: 0.6672395}
+  m_LocalPosition: {x: -23.12, y: 9.27, z: 33.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 81.037, y: -31.86, z: 30.606}
+  m_LocalEulerAnglesHint: {x: 76.819, y: -48.698, z: 17.303}
 --- !u!114 &1128736723
 MonoBehaviour:
   m_ObjectHideFlags: 0
