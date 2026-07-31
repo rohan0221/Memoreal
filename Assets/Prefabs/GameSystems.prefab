@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpscareFlash
   flashImage: {fileID: 865010232039261529}
-  jitterInterval: 0.08
+  jitterInterval: 0.2
 --- !u!1 &1595314282611941949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,11 +1641,11 @@ RectTransform:
   - {fileID: 1690496290303259933}
   - {fileID: 7754680235656235345}
   - {fileID: 8302906286304971418}
+  - {fileID: 7797878561045705675}
   - {fileID: 6773062048933058231}
   - {fileID: 133047721098623777}
   - {fileID: 8711012251026790864}
   - {fileID: 537479185838370202}
-  - {fileID: 7797878561045705675}
   m_Father: {fileID: 6504439875613461483}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

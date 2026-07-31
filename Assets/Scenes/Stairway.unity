@@ -296,12 +296,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144587053}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 18.09, y: 0.119, z: -1.236}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.9999711, z: -0, w: -0.0076094153}
+  m_LocalPosition: {x: -50.171856, y: 56.082016, z: 13.788967}
+  m_LocalScale: {x: 0.23099926, y: 5.062527, z: 1.7804741}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1016429828}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &170468357
 GameObject:
@@ -962,12 +962,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56881aaab37407c4fbd40f6f04a60c4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 170468364}
-    - targetCorrespondingSourceObject: {fileID: 6390161350182591423, guid: 56881aaab37407c4fbd40f6f04a60c4f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2015390008}
-    - targetCorrespondingSourceObject: {fileID: 6390161350182591423, guid: 56881aaab37407c4fbd40f6f04a60c4f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 144587054}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4459105445701050777, guid: 56881aaab37407c4fbd40f6f04a60c4f, type: 3}
       insertIndex: -1
@@ -1000,8 +994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StairwellSequence
   smellMemoryFrames:
-  - {fileID: 21300000, guid: 15e8fc183cc881a4e8dff400aab9543b, type: 3}
-  - {fileID: 21300000, guid: e2db77d6534cf7544a882e997c23cde2, type: 3}
+  - {fileID: 21300000, guid: 224d49a52f43b3b45a0991b7270ff0a1, type: 3}
+  - {fileID: 21300000, guid: 143dbcf9fefdeab40841b36eae2a760b, type: 3}
   jitterInterval: 0.15
   cutsceneViewPoint: {fileID: 2015390008}
   doorLookPoint: {fileID: 144587054}
@@ -1016,11 +1010,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e2db77d6534cf7544a882e997c23cde2, type: 3}
   requiredDayMessage: There's nothing to do here right now.
   requiredDay: 4
---- !u!4 &1016429828 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6390161350182591423, guid: 56881aaab37407c4fbd40f6f04a60c4f, type: 3}
-  m_PrefabInstance: {fileID: 1016429825}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1016429829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1102,12 +1091,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015390007}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.34, y: -0.512, z: -0.94}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.0076094153, z: -0, w: 0.9999711}
+  m_LocalPosition: {x: -49.69958, y: 52.887558, z: 14.308861}
+  m_LocalScale: {x: 0.23099922, y: 5.062527, z: 1.7804737}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1016429828}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1117,3 +1106,5 @@ SceneRoots:
   - {fileID: 1016429825}
   - {fileID: 1923460156}
   - {fileID: 922629359}
+  - {fileID: 2015390008}
+  - {fileID: 144587054}

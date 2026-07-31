@@ -179,6 +179,11 @@ public class DayCycleManager : MonoBehaviour
         firstPersonLookScript.enabled = false;
         StartCoroutine(EndDaySequence());
     }
+    
+    public IEnumerator FadeToBlack(float duration)
+    {
+        yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, duration));
+    }
 
     IEnumerator EndDaySequence()
     {

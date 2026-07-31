@@ -53,6 +53,8 @@ public class StairwellSequence : MonoBehaviour
         DialogueManager.Instance.StartDialogue("", new string[] { "You should be resting." }, () => restingLineDone = true);
         yield return new WaitUntil(() => restingLineDone);
 
+        yield return StartCoroutine(DayCycleManager.Instance.FadeToBlack(0.4f));
+
         JumpscareFlash.Instance.StopFlash();
         DayCycleManager.Instance.EndDay();
     }
