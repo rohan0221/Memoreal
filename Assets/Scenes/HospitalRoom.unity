@@ -2243,8 +2243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolourable
   governingFlag: 1
-  greyMaterial: {fileID: 2100000, guid: 8ed1f276b46f83e48b0dbf1a051aaf42, type: 2}
-  colourMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  greyMaterial: {fileID: 2100000, guid: 9ac2349b3d027bf409715ae62355184a, type: 2}
+  colourMaterial: {fileID: 2100000, guid: eb3c5af95f66d684cb17128ebb50ceda, type: 2}
 --- !u!114 &1917603407
 MonoBehaviour:
   m_ObjectHideFlags: 0
