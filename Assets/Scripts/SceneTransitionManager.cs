@@ -7,6 +7,8 @@ public class SceneTransitionManager : MonoBehaviour
     public static SceneTransitionManager Instance;
 
     public EyeVignetteController eyeVignette;
+    public AudioSource doorAudioSource;
+    public AudioClip doorClip;
     public float fadeDuration = 0.5f;
 
     public bool IsTransitioning { get; private set; }
@@ -19,16 +21,21 @@ public class SceneTransitionManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void TransitionTo(string sceneName, string spawnPointName)
+    public void TransitionTo(string sceneName, string spawnPointName, bool playDoorSound = true)
     {
         if (IsTransitioning) return;
         IsTransitioning = true;
         pendingSpawnPointName = spawnPointName;
-        StartCoroutine(DoTransition(sceneName));
+        StartCoroutine(DoTransition(sceneName, playDoorSound));
     }
 
-    IEnumerator DoTransition(string sceneName)
+    IEnumerator DoTransition(string sceneName, bool playDoorSound)
     {
+        if (playDoorSound && doorAudioSource != null && doorClip != null)
+        {
+            doorAudioSource.PlayOneShot(doorClip);
+        }
+
         yield return StartCoroutine(eyeVignette.PlayClose());
 
         SceneManager.LoadScene(sceneName);

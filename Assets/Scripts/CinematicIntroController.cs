@@ -36,7 +36,7 @@ public class CinematicIntroController : MonoBehaviour
 
         StopCoroutine(jitterRoutine);
         parallaxScript.enabled = false;
-        SceneTransitionManager.Instance.TransitionTo(nextSceneName, nextSpawnPointName);
+        SceneTransitionManager.Instance.TransitionTo(nextSceneName, nextSpawnPointName, false);
     }
 
     IEnumerator JitterLoop(Sprite[] frames)
