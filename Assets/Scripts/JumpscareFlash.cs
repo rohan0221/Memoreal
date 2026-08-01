@@ -7,6 +7,8 @@ public class JumpscareFlash : MonoBehaviour
     public static JumpscareFlash Instance;
     public Image flashImage;
     public float jitterInterval = 0.08f;
+    public AudioSource stingerSource;
+    public AudioClip stingerClip;
     Coroutine loopRoutine;
 
     void Awake()
@@ -17,8 +19,8 @@ public class JumpscareFlash : MonoBehaviour
 
     public void StartFlash(Sprite[] frames)
     {
-        Debug.Log("StartFlash called on: " + gameObject.name + " / " + gameObject.GetInstanceID() + " | flashImage: " + (flashImage != null ? flashImage.name + " " + flashImage.GetInstanceID() : "NULL"));
         flashImage.enabled = true;
+        if (stingerSource != null && stingerClip != null) stingerSource.PlayOneShot(stingerClip);
         loopRoutine = StartCoroutine(JitterLoop(frames));
     }
 

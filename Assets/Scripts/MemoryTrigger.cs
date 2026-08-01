@@ -14,6 +14,10 @@ public class MemoryTrigger : MonoBehaviour
     public string afterCompletionMessage = "";
     public GameObject objectToHideOnComplete;
     public GameObject objectToShowOnComplete;
+    public AudioSource chimeSource;
+    public AudioClip chimeClip;
+    public AudioClip guiltTwistClip;
+    public bool playPositiveChime = true;
 
     [Header("Guilt Twist Override (optional)")]
     public int guiltTwistDay = 0;
@@ -32,6 +36,12 @@ public class MemoryTrigger : MonoBehaviour
             if (guiltTwistPlayed) return;
             guiltTwistPlayed = true;
             InteractPromptUI.Instance.Hide();
+
+            if (chimeSource != null && guiltTwistClip != null)
+            {
+                chimeSource.PlayOneShot(guiltTwistClip);
+            }
+
             MemoryCutsceneController.Instance.PlayMemory(cutsceneViewPoint, guiltTwistFrames, jitterInterval, OnGuiltTwistMemoryComplete);
             return;
         }
@@ -73,6 +83,10 @@ public class MemoryTrigger : MonoBehaviour
 
     void StartMemory()
     {
+        if (playPositiveChime && chimeSource != null && chimeClip != null)
+        {
+            chimeSource.PlayOneShot(chimeClip);
+        }
         MemoryCutsceneController.Instance.PlayMemory(cutsceneViewPoint, memoryFrames, jitterInterval, OnMemoryComplete);
     }
 
