@@ -20,6 +20,13 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI speakerTextRight;
     public TextMeshProUGUI lineTextRight;
 
+    public AudioSource blipSource;
+    public AudioClip blipClip;
+    public float blipMaxDurationPerLine = 2.5f;
+
+    bool hasStartedBlip;
+    Coroutine blipCapRoutine;
+
     public bool IsActive { get; private set; }
 
     void Awake()
@@ -30,18 +37,58 @@ public class DialogueManager : MonoBehaviour
         dialoguePanelRight.SetActive(false);
     }
 
-    public void StartDialogue(string speaker, string[] lines, Action onComplete = null)
+    void StartBlipForLine()
     {
-        if (IsActive) return;
-        StartCoroutine(PlayLines(speaker, lines, onComplete));
+        if (blipSource == null || blipClip == null) return;
+
+        if (blipSource.clip != blipClip) blipSource.clip = blipClip;
+
+        if (!hasStartedBlip)
+        {
+            blipSource.Play();
+            hasStartedBlip = true;
+        }
+        else
+        {
+            blipSource.UnPause();
+        }
+
+        if (blipCapRoutine != null) StopCoroutine(blipCapRoutine);
+        blipCapRoutine = StartCoroutine(AutoPauseBlipAfterDelay(blipMaxDurationPerLine));
     }
 
-    IEnumerator PlayLines(string speaker, string[] lines, Action onComplete)
+    void StopBlipForLine()
+    {
+        if (blipCapRoutine != null) { StopCoroutine(blipCapRoutine); blipCapRoutine = null; }
+        if (blipSource != null && blipSource.isPlaying) blipSource.Pause();
+    }
+
+    IEnumerator AutoPauseBlipAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (blipSource != null && blipSource.isPlaying) blipSource.Pause();
+    }
+
+    void ResetBlip()
+    {
+        hasStartedBlip = false;
+        if (blipCapRoutine != null) { StopCoroutine(blipCapRoutine); blipCapRoutine = null; }
+        if (blipSource != null) blipSource.Stop();
+    }
+
+    public void StartDialogue(string speaker, string[] lines, Action onComplete = null, bool playBlip = true)
+    {
+        if (IsActive) return;
+        StartCoroutine(PlayLines(speaker, lines, onComplete, playBlip));
+    }
+
+    IEnumerator PlayLines(string speaker, string[] lines, Action onComplete, bool playBlip)
     {
         IsActive = true;
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
         dialoguePanel.SetActive(true);
+        ResetBlip();
 
         foreach (string line in lines)
         {
@@ -49,8 +96,12 @@ public class DialogueManager : MonoBehaviour
             speakerText.gameObject.SetActive(!string.IsNullOrEmpty(speaker));
             lineText.text = line;
 
+            if (playBlip) StartBlipForLine();
+
             yield return new WaitForSeconds(0.15f);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space));
+
+            if (playBlip) StopBlipForLine();
         }
 
         dialoguePanel.SetActive(false);
@@ -71,6 +122,7 @@ public class DialogueManager : MonoBehaviour
         IsActive = true;
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
+        ResetBlip();
 
         for (int i = 0; i < lines.Length; i++)
         {
@@ -92,8 +144,12 @@ public class DialogueManager : MonoBehaviour
                 lineTextRight.text = lines[i];
             }
 
+            StartBlipForLine();
+
             yield return new WaitForSeconds(0.15f);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space));
+
+            StopBlipForLine();
         }
 
         dialoguePanelLeft.SetActive(false);

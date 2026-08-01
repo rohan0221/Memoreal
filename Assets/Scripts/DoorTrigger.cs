@@ -33,7 +33,7 @@ public class DoorTrigger : MonoBehaviour
             {
                 if (DayCycleManager.Instance.GetCurrentDay() < minDayRequired)
                 {
-                    DialogueManager.Instance.StartDialogue("", new string[] { "The door is locked." });
+                    DialogueManager.Instance.StartDialogue("", new string[] { "The door is locked." }, null, false);
                     return;
                 }
 

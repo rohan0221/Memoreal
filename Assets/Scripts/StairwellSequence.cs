@@ -22,7 +22,7 @@ public class StairwellSequence : MonoBehaviour
             if (MemoryManager.Instance.currentDay != requiredDay)
             {
                 InteractPromptUI.Instance.Hide();
-                DialogueManager.Instance.StartDialogue("", new string[] { requiredDayMessage });
+                DialogueManager.Instance.StartDialogue("", new string[] { requiredDayMessage }, null, false);
                 return;
             }
 

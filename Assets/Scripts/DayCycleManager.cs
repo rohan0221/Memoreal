@@ -130,7 +130,7 @@ public class DayCycleManager : MonoBehaviour
             DialogueManager.Instance.StartDialogue("", new string[] {
                 "Press space to land the clock arms on the eye indicators to extend your day's steps.",
                 "Some content will only be available in later days."
-            }, BeginSkillCheck);
+            }, BeginSkillCheck, false);
         }
         else
         {
@@ -186,7 +186,7 @@ public class DayCycleManager : MonoBehaviour
         }
         else
         {
-            DialogueManager.Instance.StartDialogue("", new string[] { "You passed out..." }, EndDay);
+            DialogueManager.Instance.StartDialogue("", new string[] { "You passed out..." }, EndDay, false);
         }
     }
 
@@ -238,7 +238,7 @@ public class DayCycleManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         SceneTransitionManager.Instance.eyeVignette.HoldClosed();
-        SceneTransitionManager.Instance.TransitionTo("MainMenu", "");
+        SceneTransitionManager.Instance.TransitionTo("MainMenu", "", false);
     }
 
     IEnumerator EndDaySequence()
@@ -259,6 +259,6 @@ public class DayCycleManager : MonoBehaviour
 
         dayText.gameObject.SetActive(false);
         isEndingDay = false;
-        SceneTransitionManager.Instance.TransitionTo("HospitalRoom", "BedSpawnPoint");
+        SceneTransitionManager.Instance.TransitionTo("HospitalRoom", "BedSpawnPoint", false);
     }
 }

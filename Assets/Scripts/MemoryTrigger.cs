@@ -43,7 +43,7 @@ public class MemoryTrigger : MonoBehaviour
             bool alreadyDone = MemoryManager.Instance.IsFlagUnlocked(governingFlag);
             string message = (alreadyDone && !string.IsNullOrEmpty(afterCompletionMessage)) ? afterCompletionMessage : wrongDayMessage;
 
-            DialogueManager.Instance.StartDialogue("", new string[] { message });
+            DialogueManager.Instance.StartDialogue("", new string[] { message }, null, false);
             return;
         }
 
