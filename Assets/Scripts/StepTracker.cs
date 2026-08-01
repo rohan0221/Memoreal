@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class StepTracker : MonoBehaviour
 {
-    public float distancePerStep = 1f;
+    public float distancePerStep = 1f; // kept for AddDistance logic, no longer drives audio
     public int currentSteps;
     public AudioSource footstepSource;
-    public AudioClip[] footstepClips;
+    public AudioClip walkingLoopClip;
     Vector3 lastPosition;
-    float distanceSinceLastFootstep;
+    bool isMoving;
+    bool hasStartedClip;
 
     void Start()
     {
         lastPosition = transform.position;
+        footstepSource.clip = walkingLoopClip;
+        footstepSource.loop = true;
     }
 
     void Update()
@@ -19,29 +22,37 @@ public class StepTracker : MonoBehaviour
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
 
-        if (distanceMoved > 0.001f)
+        bool currentlyMoving = distanceMoved > 0.001f;
+
+        if (currentlyMoving)
         {
             DayCycleManager.Instance.AddDistance(distanceMoved);
+        }
 
-            distanceSinceLastFootstep += distanceMoved;
-            if (distanceSinceLastFootstep >= distancePerStep)
+        if (currentlyMoving && !isMoving)
+        {
+            // just started moving
+            if (!hasStartedClip)
             {
-                distanceSinceLastFootstep = 0f;
-                currentSteps++;
-                PlayFootstep();
+                footstepSource.Play();
+                hasStartedClip = true;
+            }
+            else
+            {
+                footstepSource.UnPause();
             }
         }
+        else if (!currentlyMoving && isMoving)
+        {
+            // just stopped moving
+            footstepSource.Pause();
+        }
+
+        isMoving = currentlyMoving;
     }
 
     public void ResetSteps()
     {
         currentSteps = 0;
-    }
-
-    void PlayFootstep()
-    {
-        if (footstepClips.Length == 0) return;
-        footstepSource.clip = footstepClips[Random.Range(0, footstepClips.Length)];
-        footstepSource.Play();
     }
 }

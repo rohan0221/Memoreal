@@ -1745,8 +1745,7 @@ MonoBehaviour:
   distancePerStep: 1
   currentSteps: 0
   footstepSource: {fileID: 1428160790}
-  footstepClips:
-  - {fileID: 8300000, guid: 8e2dd58ee97bc1a42aa9432cfb7ef995, type: 3}
+  walkingLoopClip: {fileID: 8300000, guid: 8e2dd58ee97bc1a42aa9432cfb7ef995, type: 3}
 --- !u!114 &1861707001
 MonoBehaviour:
   m_ObjectHideFlags: 0
