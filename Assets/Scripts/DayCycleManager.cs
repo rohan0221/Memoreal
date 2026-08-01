@@ -15,8 +15,6 @@ public class DayCycleManager : MonoBehaviour
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
     public MonoBehaviour firstPersonLookScript;
-    public float heartbeatMinVolume = 0.3f;
-    public float heartbeatMaxVolume = 0.8f;
     public bool IsBusy => isEndingDay || inBlackout;
     bool inBlackout;
     bool isEndingDay;
@@ -93,7 +91,6 @@ public class DayCycleManager : MonoBehaviour
                     audio.heartbeatClockSource.Play();
                     if (audio.wallClockSource != null) audio.wallClockSource.Stop();
                 }
-                audio.heartbeatClockSource.volume = Mathf.Lerp(heartbeatMinVolume, heartbeatMaxVolume, t);
                 audio.heartbeatClockSource.pitch = Mathf.Lerp(1f, 0.6f, t);
             }
             if (audio.heartbeatReverbFilter != null)
@@ -126,9 +123,6 @@ public class DayCycleManager : MonoBehaviour
         SetVignetteAlpha(1f);
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
-
-        if (GlobalAudioManager.Instance != null && GlobalAudioManager.Instance.heartbeatClockSource != null)
-            GlobalAudioManager.Instance.heartbeatClockSource.volume = heartbeatMaxVolume;
 
         if (!MemoryManager.Instance.HasShownHint("skill_check_explain"))
         {
@@ -209,7 +203,6 @@ public class DayCycleManager : MonoBehaviour
         if (audio.heartbeatReverbFilter != null) audio.heartbeatReverbFilter.reverbLevel = -10000f;
         if (audio.wallClockSource != null)
         {
-            audio.wallClockSource.volume = 1f;
             audio.wallClockSource.Play();
         }
     }
