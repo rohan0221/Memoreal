@@ -18,6 +18,8 @@ public class MemoryTrigger : MonoBehaviour
     public AudioClip chimeClip;
     public AudioClip guiltTwistClip;
     public bool playPositiveChime = true;
+    public AudioSource ambienceSource;
+    public AudioClip ambienceClip;
 
     [Header("Guilt Twist Override (optional)")]
     public int guiltTwistDay = 0;
@@ -87,11 +89,21 @@ public class MemoryTrigger : MonoBehaviour
         {
             chimeSource.PlayOneShot(chimeClip);
         }
+
+        if (ambienceSource != null && ambienceClip != null)
+        {
+            ambienceSource.clip = ambienceClip;
+            ambienceSource.loop = true;
+            ambienceSource.Play();
+        }
+
         MemoryCutsceneController.Instance.PlayMemory(cutsceneViewPoint, memoryFrames, jitterInterval, OnMemoryComplete);
     }
 
     void OnMemoryComplete()
     {
+        if (ambienceSource != null) ambienceSource.Stop();
+
         MemoryManager.Instance.UnlockByFlag(governingFlag);
 
         if (objectToHideOnComplete != null) objectToHideOnComplete.SetActive(false);

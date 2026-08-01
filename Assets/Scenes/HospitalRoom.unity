@@ -720,8 +720,10 @@ MonoBehaviour:
   objectToShowOnComplete: {fileID: 0}
   chimeSource: {fileID: 376002750}
   chimeClip: {fileID: 8300000, guid: d398474c03a7a7147ae83ccc329e33bd, type: 3}
-  guiltTwistClip: {fileID: 8300000, guid: d80d8dfacc24c1042bb449aeb7a700eb, type: 3}
+  guiltTwistClip: {fileID: 8300000, guid: 8e2dd58ee97bc1a42aa9432cfb7ef995, type: 3}
   playPositiveChime: 1
+  ambienceSource: {fileID: 0}
+  ambienceClip: {fileID: 0}
   guiltTwistDay: 6
   guiltTwistFrames:
   - {fileID: 21300000, guid: 5215f678096fed346ac757fd86948b15, type: 3}
@@ -2462,10 +2464,12 @@ MonoBehaviour:
   afterCompletionMessage: 
   objectToHideOnComplete: {fileID: 0}
   objectToShowOnComplete: {fileID: 0}
-  chimeSource: {fileID: 376002750}
-  chimeClip: {fileID: 8300000, guid: d398474c03a7a7147ae83ccc329e33bd, type: 3}
+  chimeSource: {fileID: 0}
+  chimeClip: {fileID: 0}
   guiltTwistClip: {fileID: 0}
-  playPositiveChime: 1
+  playPositiveChime: 0
+  ambienceSource: {fileID: 376002750}
+  ambienceClip: {fileID: 8300000, guid: 6dac86733af5ee84fa8921340c3f8cf5, type: 3}
   guiltTwistDay: 0
   guiltTwistFrames: []
 --- !u!1001 &1981133318
@@ -2616,6 +2620,8 @@ MonoBehaviour:
   chimeClip: {fileID: 8300000, guid: d398474c03a7a7147ae83ccc329e33bd, type: 3}
   guiltTwistClip: {fileID: 0}
   playPositiveChime: 1
+  ambienceSource: {fileID: 0}
+  ambienceClip: {fileID: 0}
   guiltTwistDay: 0
   guiltTwistFrames: []
 --- !u!65 &1981133323
