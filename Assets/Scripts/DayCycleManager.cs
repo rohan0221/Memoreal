@@ -15,7 +15,8 @@ public class DayCycleManager : MonoBehaviour
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
     public MonoBehaviour firstPersonLookScript;
-    public AudioSource heartbeatClockSource;
+    public float heartbeatMinVolume = 0.3f;
+    public float heartbeatMaxVolume = 0.8f;
     public bool IsBusy => isEndingDay || inBlackout;
     bool inBlackout;
     bool isEndingDay;
@@ -82,10 +83,23 @@ public class DayCycleManager : MonoBehaviour
         float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, MemoryManager.Instance.distanceTravelled);
         SetVignetteAlpha(t);
 
-        if (heartbeatClockSource != null)
+        var audio = GlobalAudioManager.Instance;
+        if (audio != null)
         {
-            if (!heartbeatClockSource.isPlaying) heartbeatClockSource.Play();
-            heartbeatClockSource.volume = t;
+            if (audio.heartbeatClockSource != null)
+            {
+                if (!audio.heartbeatClockSource.isPlaying)
+                {
+                    audio.heartbeatClockSource.Play();
+                    if (audio.wallClockSource != null) audio.wallClockSource.Stop();
+                }
+                audio.heartbeatClockSource.volume = Mathf.Lerp(heartbeatMinVolume, heartbeatMaxVolume, t);
+                audio.heartbeatClockSource.pitch = Mathf.Lerp(1f, 0.6f, t);
+            }
+            if (audio.heartbeatReverbFilter != null)
+            {
+                audio.heartbeatReverbFilter.reverbLevel = Mathf.Lerp(-10000f, 0f, t);
+            }
         }
 
         if (t > 0.05f)
@@ -113,7 +127,8 @@ public class DayCycleManager : MonoBehaviour
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
 
-        if (heartbeatClockSource != null) heartbeatClockSource.volume = 1f;
+        if (GlobalAudioManager.Instance != null && GlobalAudioManager.Instance.heartbeatClockSource != null)
+            GlobalAudioManager.Instance.heartbeatClockSource.volume = heartbeatMaxVolume;
 
         if (!MemoryManager.Instance.HasShownHint("skill_check_explain"))
         {
@@ -173,7 +188,7 @@ public class DayCycleManager : MonoBehaviour
             SetVignetteAlpha(0f);
             playerMovementScript.enabled = true;
             firstPersonLookScript.enabled = true;
-            if (heartbeatClockSource != null) heartbeatClockSource.Stop();
+            ResetAmbientAudio();
         }
         else
         {
@@ -181,6 +196,23 @@ public class DayCycleManager : MonoBehaviour
         }
     }
 
+    void ResetAmbientAudio()
+    {
+        var audio = GlobalAudioManager.Instance;
+        if (audio == null) return;
+
+        if (audio.heartbeatClockSource != null)
+        {
+            audio.heartbeatClockSource.Stop();
+            audio.heartbeatClockSource.pitch = 1f;
+        }
+        if (audio.heartbeatReverbFilter != null) audio.heartbeatReverbFilter.reverbLevel = -10000f;
+        if (audio.wallClockSource != null)
+        {
+            audio.wallClockSource.volume = 1f;
+            audio.wallClockSource.Play();
+        }
+    }
 
     public void EndDay()
     {
@@ -218,7 +250,7 @@ public class DayCycleManager : MonoBehaviour
 
     IEnumerator EndDaySequence()
     {
-        if (heartbeatClockSource != null) heartbeatClockSource.Stop();
+        ResetAmbientAudio();
 
         yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, 0.4f));
 
