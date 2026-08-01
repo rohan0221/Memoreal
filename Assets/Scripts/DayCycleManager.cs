@@ -14,7 +14,8 @@ public class DayCycleManager : MonoBehaviour
     public Image vignetteOverlay;
     public TextMeshProUGUI dayText;
     public MonoBehaviour playerMovementScript;
-    public MonoBehaviour firstPersonLookScript; 
+    public MonoBehaviour firstPersonLookScript;
+    public AudioSource heartbeatClockSource;
     public bool IsBusy => isEndingDay || inBlackout;
     bool inBlackout;
     bool isEndingDay;
@@ -27,7 +28,6 @@ public class DayCycleManager : MonoBehaviour
 
     void Start()
     {
-        // Re-sync the visual vignette to match persisted progress after a scene reload
         float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, MemoryManager.Instance.distanceTravelled);
         SetVignetteAlpha(IsDayObjectiveComplete() ? t : 0f);
 
@@ -82,6 +82,12 @@ public class DayCycleManager : MonoBehaviour
         float t = Mathf.InverseLerp(vignetteStartDistance, blackoutDistance, MemoryManager.Instance.distanceTravelled);
         SetVignetteAlpha(t);
 
+        if (heartbeatClockSource != null)
+        {
+            if (!heartbeatClockSource.isPlaying) heartbeatClockSource.Play();
+            heartbeatClockSource.volume = t;
+        }
+
         if (t > 0.05f)
         {
             TutorialHintUI.Instance.ShowHint("step_limit_warning", "You have a limited amount of steps per day, use them wisely.");
@@ -106,6 +112,8 @@ public class DayCycleManager : MonoBehaviour
         SetVignetteAlpha(1f);
         playerMovementScript.enabled = false;
         firstPersonLookScript.enabled = false;
+
+        if (heartbeatClockSource != null) heartbeatClockSource.volume = 1f;
 
         if (!MemoryManager.Instance.HasShownHint("skill_check_explain"))
         {
@@ -165,6 +173,7 @@ public class DayCycleManager : MonoBehaviour
             SetVignetteAlpha(0f);
             playerMovementScript.enabled = true;
             firstPersonLookScript.enabled = true;
+            if (heartbeatClockSource != null) heartbeatClockSource.Stop();
         }
         else
         {
@@ -209,6 +218,8 @@ public class DayCycleManager : MonoBehaviour
 
     IEnumerator EndDaySequence()
     {
+        if (heartbeatClockSource != null) heartbeatClockSource.Stop();
+
         yield return StartCoroutine(FadeVignette(vignetteOverlay.color.a, 1f, 0.4f));
 
         MemoryManager.Instance.currentDay++;
