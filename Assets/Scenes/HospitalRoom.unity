@@ -720,7 +720,7 @@ MonoBehaviour:
   objectToShowOnComplete: {fileID: 0}
   chimeSource: {fileID: 376002750}
   chimeClip: {fileID: 8300000, guid: d398474c03a7a7147ae83ccc329e33bd, type: 3}
-  guiltTwistClip: {fileID: 8300000, guid: 8e2dd58ee97bc1a42aa9432cfb7ef995, type: 3}
+  guiltTwistClip: {fileID: 8300000, guid: 29e60dadb28081041819fb2eca2e198c, type: 3}
   playPositiveChime: 1
   ambienceSource: {fileID: 0}
   ambienceClip: {fileID: 0}
@@ -871,13 +871,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 14406827132543204, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 376002752}
   m_SourcePrefab: {fileID: 100100000, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
 --- !u!82 &376002750 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4154627762133237529, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
   m_PrefabInstance: {fileID: 376002749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &376002751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 14406827132543204, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+  m_PrefabInstance: {fileID: 376002749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &376002752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376002751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da65fbcdde68bad4e9798146ac43a6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MuffledAudioController
+  lowPassFilter: {fileID: 460082060}
+  muffledCutoff: 800
+  normalCutoff: 22000
+  transitionDelay: 0.5
 --- !u!1001 &418867566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1353,6 +1377,7 @@ GameObject:
   - component: {fileID: 460082058}
   - component: {fileID: 460082057}
   - component: {fileID: 460082056}
+  - component: {fileID: 460082060}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1493,6 +1518,31 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!169 &460082060
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460082054}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.22727273
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &587328593
 PrefabInstance:
   m_ObjectHideFlags: 0

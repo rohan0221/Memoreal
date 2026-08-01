@@ -332,13 +332,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8549492480707246065, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 882442337}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 14406827132543204, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 371929648}
   m_SourcePrefab: {fileID: 100100000, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
 --- !u!224 &371929646 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8549492480707246065, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
   m_PrefabInstance: {fileID: 371929645}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &371929647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 14406827132543204, guid: d130c1411d71ac349ba475d520aa59ba, type: 3}
+  m_PrefabInstance: {fileID: 371929645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &371929648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371929647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da65fbcdde68bad4e9798146ac43a6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MuffledAudioController
+  lowPassFilter: {fileID: 1002244709}
+  muffledCutoff: 800
+  normalCutoff: 22000
+  transitionDelay: 0.5
 --- !u!1 &728423765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1076,7 @@ GameObject:
   - component: {fileID: 1002244707}
   - component: {fileID: 1002244704}
   - component: {fileID: 1002244706}
+  - component: {fileID: 1002244709}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1192,6 +1217,31 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!169 &1002244709
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002244703}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.22727273
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1160334932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3594243245622329198, guid: 8da3301ca366f5a4080046fdf8dcd3a0, type: 3}
