@@ -1400,8 +1400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StairwellSequence
   smellMemoryFrames:
-  - {fileID: 21300000, guid: 224d49a52f43b3b45a0991b7270ff0a1, type: 3}
-  - {fileID: 21300000, guid: 143dbcf9fefdeab40841b36eae2a760b, type: 3}
+  - {fileID: 21300000, guid: e67947a4deb8dae468c21f02a148cde0, type: 3}
+  - {fileID: 21300000, guid: 75e5f0aae53203f4abad27bade440cfd, type: 3}
   jitterInterval: 0.15
   cutsceneViewPoint: {fileID: 2015390008}
   doorLookPoint: {fileID: 144587054}
